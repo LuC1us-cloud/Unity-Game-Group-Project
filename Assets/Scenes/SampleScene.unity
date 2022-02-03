@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4097584380155601389, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097584380155601389, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097584380155601389, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5417673928837215635, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       propertyPath: m_RootOrder
       value: 3

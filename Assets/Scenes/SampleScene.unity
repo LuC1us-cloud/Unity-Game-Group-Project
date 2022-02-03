@@ -194,6 +194,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+--- !u!1 &215471219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5413343511567234057, guid: ab2939989e1223c4ba0f8b16589a2926, type: 3}
+  m_PrefabInstance: {fileID: 5413343513115519218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215471220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215471219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a509bb14167e704c8e53e3f39cc15fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: 100
+  MaxHealth: 100
+  Damage: 10
+  Armor: 10
+  PassiveHealingInterval: 5
+  PassiveHealingAmount: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

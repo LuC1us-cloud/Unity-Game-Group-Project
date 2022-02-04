@@ -219,6 +219,18 @@ MonoBehaviour:
   Armor: 10
   PassiveHealingInterval: 5
   PassiveHealingAmount: 10
+  inventory: []
+  Head: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
+  Feet: {fileID: 0}
+  Hands: {fileID: 0}
+  Weapon: {fileID: 0}
+  Shield: {fileID: 0}
+  Ring: {fileID: 0}
+  Necklace: {fileID: 0}
+  Amulet: {fileID: 0}
+  Belt: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

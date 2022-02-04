@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+
+    public float speed = 3f;
+    public Transform target;
     public int CurrentHealth = 100;
     public int MaxHealth = 100;
     public int Damage = 10;
@@ -11,6 +14,29 @@ public class Entity : MonoBehaviour
     public int PassiveHealingInterval = 5;
     public int PassiveHealingAmount = 10;
     private float timeSinceLastHeal = 0;
+
+    private void Update(){
+        if(target != null){
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target.position, step);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.tag == "Player"){
+            target = other.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+       if(other.gameObject.tag == "Player"){
+            target = null;
+        }
+    }
+
+
     private void FixedUpdate()
     {
         // if health reaches 0, destroy the object

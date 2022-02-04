@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-
+    public GameObject damageText;
     public float speed = 3f;
-    public Transform target;
     public int CurrentHealth = 100;
     public int MaxHealth = 100;
     public int Damage = 10;
@@ -14,27 +13,6 @@ public class Entity : MonoBehaviour
     public int PassiveHealingInterval = 5;
     public int PassiveHealingAmount = 10;
     private float timeSinceLastHeal = 0;
-
-    private void Update(){
-        if(target != null){
-            float step = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target.position, step);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        if(other.gameObject.tag == "Player"){
-            target = other.transform;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-       if(other.gameObject.tag == "Player"){
-            target = null;
-        }
-    }
 
 
     private void FixedUpdate()
@@ -59,7 +37,10 @@ public class Entity : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // damage can't be less than 1
-        CurrentHealth -= Mathf.Max(1, damage - Armor);
+        int damageToTake = Mathf.Max(1, damage - Armor);
+        CurrentHealth -= damageToTake;
+        DamageIndicator damageIndicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        damageIndicator.SetDamageText(damageToTake);
     }
 
     public void Heal(int heal)

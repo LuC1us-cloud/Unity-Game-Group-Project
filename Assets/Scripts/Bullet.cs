@@ -22,6 +22,10 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Entity>().TakeDamage(Damage);
         }
+        if (other.gameObject.tag == "MageEnemy")
+        {
+            other.gameObject.GetComponent<mageEnemy>().TakeDamage(Damage);
+        }
         Destroy(gameObject);
     }
 }

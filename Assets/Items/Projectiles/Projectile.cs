@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         }
         if (other.gameObject.tag == "MageEnemy")
         {
-            other.gameObject.GetComponent<mageEnemy>().TakeDamage(Damage);
+            other.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);
         }
         Destroy(gameObject);
     }

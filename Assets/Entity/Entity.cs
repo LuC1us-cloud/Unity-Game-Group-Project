@@ -13,8 +13,8 @@ public class Entity : MonoBehaviour
     public int PassiveHealingInterval = 5;
     public int PassiveHealingAmount = 10;
     private float timeSinceLastHeal = 0;
-
-
+    public bool isInvincible = false;
+    public bool isStunned = false;
     private void FixedUpdate()
     {
         // if health reaches 0, destroy the object
@@ -36,6 +36,7 @@ public class Entity : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if(isInvincible) return;
         // damage can't be less than 1
         int damageToTake = Mathf.Max(1, damage - Armor);
         CurrentHealth -= damageToTake;
@@ -54,9 +55,10 @@ public class Entity : MonoBehaviour
 
     public void MoveTo(Vector2 position)
     {
+        if(isStunned) return;
         // get rigidbody
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if(rb == null) return;
+        if (rb == null) return;
         // move to position
         rb.MovePosition(position);
     }

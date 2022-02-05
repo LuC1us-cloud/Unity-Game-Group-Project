@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-    public int Damage = 10;
+    private int damage;
     private float timeAlive = 0;
     private float timeToLive = 10;
     private void FixedUpdate()
@@ -20,8 +20,16 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<Entity>().TakeDamage(Damage);
+            other.gameObject.GetComponent<Entity>().TakeDamage(damage);
         }
         Destroy(gameObject);
+    }
+    public void SetProjectileLifeTime(float time)
+    {
+        timeToLive = time;
+    }
+    public void SetDamage(int damage)
+    {
+        this.damage = damage;
     }
 }

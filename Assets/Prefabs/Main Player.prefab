@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4181305027089149294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9035288464815044409}
-  m_Layer: 0
-  m_Name: Firepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9035288464815044409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4181305027089149294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5413343512480779519}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5413343511567234057
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,8 +13,7 @@ GameObject:
   - component: {fileID: 5413343511567234061}
   - component: {fileID: 5413343511567234060}
   - component: {fileID: -959889842686621993}
-  - component: {fileID: -2646640519447577403}
-  - component: {fileID: -2897687763886110179}
+  - component: {fileID: 4464193331719634205}
   m_Layer: 0
   m_Name: Main Player
   m_TagString: Player
@@ -134,10 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9130243f63193e42a40fd4c6063c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMovementRelativeToCamera: 0
   moveSpeed: 5
   rb: {fileID: 5413343511567234060}
   cam: {fileID: 0}
+  specialAbility: 0
+  dashDistance: 20
 --- !u!50 &5413343511567234060
 Rigidbody2D:
   serializedVersion: 4
@@ -175,7 +144,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-2646640519447577403
+--- !u!114 &4464193331719634205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,27 +153,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5413343511567234057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12aa2a994a016b44a47dd487e5c9c17, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a509bb14167e704c8e53e3f39cc15fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  shotInterval: 0.2
-  bulletForce: 20
---- !u!114 &-2897687763886110179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5413343511567234057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44872a8b388801488770c3475cdeb84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  damageText: {fileID: 0}
+  speed: 3
+  CurrentHealth: 100
+  MaxHealth: 100
+  Damage: 10
+  Armor: 10
+  PassiveHealingInterval: 5
+  PassiveHealingAmount: 10
+  inventory: []
+  Head: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
+  Feet: {fileID: 0}
+  Hands: {fileID: 0}
+  Weapon: {fileID: 0}
+  Shield: {fileID: 0}
+  Ring: {fileID: 0}
+  Necklace: {fileID: 0}
+  Amulet: {fileID: 0}
+  Belt: {fileID: 0}
 --- !u!1 &5413343512175988912
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +204,7 @@ Transform:
   m_LocalPosition: {x: -0.45, y: 0.45, z: 0}
   m_LocalScale: {x: 0.09013446, y: 0.9005707, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2595911463593707334}
+  m_Children: []
   m_Father: {fileID: 5413343511567234063}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,8 +288,7 @@ Transform:
   m_LocalPosition: {x: 0.45, y: 0.45, z: 0}
   m_LocalScale: {x: 0.09013446, y: 0.9005707, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9035288464815044409}
+  m_Children: []
   m_Father: {fileID: 5413343511567234063}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -375,34 +344,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8458285835342492991
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2595911463593707334}
-  m_Layer: 0
-  m_Name: Firepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2595911463593707334
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8458285835342492991}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.9999506, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5413343512175988913}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

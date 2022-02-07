@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public enum DoubleShiftUsage
+    public enum SpecialAbility
     {
         None,
         Dash,
+        Forcefield_Pushaway,
+        Forcefield_Shield,
+        Forcefield_Damage,
     }
+    public GameObject Ff_PushawayPrefab;
+    public GameObject Ff_ShieldPrefab;
+    public GameObject Ff_DamagePrefab;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
     [Header("Double Shift Usage")]
-    public DoubleShiftUsage specialAbility = DoubleShiftUsage.None;
+    public SpecialAbility specialAbility = SpecialAbility.None;
     public float dashDistance = 20f;
 
     Vector2 mousePos;
@@ -21,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     bool shiftClickedOnce = false;
     bool shiftClickedTwice = false;
     float shiftClickInterval = 0.5f;
+    float SpecialAbilityActiveTime = 0;
+    float SpecialAbilityDuration = 4f;
 
     // Update is called once per frame
     void Update()
@@ -62,15 +70,43 @@ public class PlayerMovement : MonoBehaviour
         {
             switch (specialAbility)
             {
-                case DoubleShiftUsage.Dash:
-                    rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime * dashDistance);
+                case SpecialAbility.Dash:
+                    Dash();
                     break;
-                
+
+                case SpecialAbility.Forcefield_Pushaway:
+                    Forcefield_Pushaway();
+                    break;
+
+                case SpecialAbility.Forcefield_Shield:
+                    Forcefield_Shield();
+                    break;
+
+                case SpecialAbility.Forcefield_Damage:
+                    Forcefield_Damage();
+                    break;
+
                 default:
                     break;
             }
             shiftClickedOnce = false;
             shiftClickedTwice = false;
         }
+    }
+    private void Dash()
+    {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime * dashDistance);
+    }
+    private void Forcefield_Pushaway()
+    {
+        Instantiate(Ff_PushawayPrefab, rb.position, Quaternion.identity);
+    }
+    private void Forcefield_Shield()
+    {
+        Instantiate(Ff_ShieldPrefab, rb.position, Quaternion.identity);
+    }
+    private void Forcefield_Damage()
+    {
+        Instantiate(Ff_DamagePrefab, rb.position, Quaternion.identity);
     }
 }

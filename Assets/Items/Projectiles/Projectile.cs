@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private List<GameObject> colliders = new List<GameObject>();
+    public int numberOfHits = 1;
     private int damage;
     private float timeAlive = 0;
     private float timeToLive = 10;
@@ -18,15 +20,23 @@ public class Projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        switch (other.gameObject.tag)
         {
-            other.gameObject.GetComponent<Entity>().TakeDamage(damage);
+            case "Enemy":
+                other.gameObject.GetComponent<Entity>().TakeDamage(damage);
+                Physics2D.IgnoreCollision(other.collider, GetComponent<CircleCollider2D>());
+                break;
+            case "MageEnemy":
+                other.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);
+                break;
+            default:
+                break;
         }
-        if (other.gameObject.tag == "MageEnemy")
+        numberOfHits--;
+        if (numberOfHits <= 0)
         {
-            other.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
     public void SetProjectileLifeTime(float time)
     {

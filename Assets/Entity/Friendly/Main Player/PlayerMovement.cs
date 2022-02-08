@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
         Forcefield_Pushaway,
         Forcefield_Shield,
         Forcefield_Damage,
+        Gravity_Orb,
     }
     public GameObject Ff_PushawayPrefab;
     public GameObject Ff_ShieldPrefab;
     public GameObject Ff_DamagePrefab;
+    public GameObject GravityOrbPrefab;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
@@ -86,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
                     Forcefield_Damage();
                     break;
 
+                case SpecialAbility.Gravity_Orb:
+                    Gravity_Orb();
+                    break;
                 default:
                     break;
             }
@@ -108,5 +113,11 @@ public class PlayerMovement : MonoBehaviour
     private void Forcefield_Damage()
     {
         Instantiate(Ff_DamagePrefab, rb.position, Quaternion.identity);
+    }
+    private void Gravity_Orb()
+    {
+        var gravOrb = Instantiate(GravityOrbPrefab, rb.position, Quaternion.identity);
+        // change velocity of the gravOrb to move away from the player, torwards the cursor
+        gravOrb.GetComponent<Rigidbody2D>().velocity = (mousePos - rb.position).normalized * 3f;
     }
 }

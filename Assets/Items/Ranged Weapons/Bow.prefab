@@ -50,7 +50,7 @@ MonoBehaviour:
   itemName: Glock
   description: A medium range gun.
   value: 52
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d2030de1482eab54d95253123634ba2e, type: 3}
   stackable: 0
   maxStack: 0
   quantity: 1

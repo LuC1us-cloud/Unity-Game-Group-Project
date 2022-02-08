@@ -187,9 +187,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8677749768361077577}
   - component: {fileID: 5968669008656458938}
+  - component: {fileID: 4860539880438511494}
   m_Layer: 0
   m_Name: Machine Gun
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,6 +250,22 @@ MonoBehaviour:
   attackSpeed: 4
   attackRange: 20
   projectileVelocity: 30
+--- !u!58 &4860539880438511494
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679769193743836020}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &9064606111728181035
 GameObject:
   m_ObjectHideFlags: 0

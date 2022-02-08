@@ -31,6 +31,8 @@ public class MainPlayer : Entity
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
+            // get child of inventoryUI GameObject nad call Inventory.UpdateContent()
+            inventoryUI.transform.GetChild(0).GetComponent<InventoryController>().UpdateContent();
             // and pause the game
             Time.timeScale = Time.timeScale == 0 ? 1 : 0;
         }
@@ -68,38 +70,48 @@ public class MainPlayer : Entity
             if (hit.collider.GetComponent<Interactable>() == null) return;
             // call the Interact() function
             hit.collider.GetComponent<Interactable>().Interact();
+            return;
         }
-        else
+        // get all gameObjects with tag "Item" in radius of 1.5f of the MainPlayer
+        Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+        // loop through all items
+        GameObject closest = null;
+        foreach (Collider2D item in items)
         {
-            // get all gameObjects with tag "Item" in radius of 1.5f of the MainPlayer
-            Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, 1.5f);
-            // loop through all items
-            GameObject closest = null;
-            foreach (Collider2D item in items)
+            // if the item is an Item
+            if (item.gameObject.tag == "Item")
             {
-                // if the item is an Item
-                if (item.gameObject.tag == "Item")
+                // if the closest item is null or the item is closer than the closest item
+                if (closest == null ||
+                Vector2.Distance(transform.position, item.transform.position) <
+                Vector2.Distance(transform.position, closest.transform.position))
                 {
-                    // if the closest item is null or the item is closer than the closest item
-                    if (closest == null ||
-                    Vector2.Distance(transform.position, item.transform.position) <
-                    Vector2.Distance(transform.position, closest.transform.position))
-                    {
-                        // set the closest item to the item
-                        closest = item.gameObject;
-                    }
+                    // set the closest item to the item
+                    closest = item.gameObject;
                 }
             }
-            // if the closest item is not null
-            if (closest != null)
-            {
-                // call the PickUp() function
-                PickUp(closest);
-            }
         }
-    }
-    void PickUp()
-    {
+        // if the closest item is not null
+        if (closest != null)
+        {
+            // call the PickUp() function
+            PickUp(closest);
+        }
 
+    }
+    void PickUp(GameObject item)
+    {
+        // if the inventory is full, return
+        if (inventory.Count >= 100) return;
+        // if the item is an Item
+        if (item.tag == "Item" && item.GetComponent<Item>().isOnGround)
+        {
+            // add the Item to the inventory
+            inventory.Add(item.GetComponent<Item>());
+            // set item.isOnGround to false
+            item.GetComponent<Item>().isOnGround = false;
+            // disable the item
+            item.SetActive(false);
+        }
     }
 }

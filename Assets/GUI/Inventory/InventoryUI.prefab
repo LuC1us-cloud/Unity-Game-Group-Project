@@ -343,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894484853203828825}
   - component: {fileID: 4894484853203828826}
+  - component: {fileID: 7041611476753630948}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -379,6 +380,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4894484853203828824}
   m_CullTransparentMesh: 1
+--- !u!114 &7041611476753630948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894484853203828824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b568e2d1f258144982ee3b612e85efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryRef: {fileID: 4894484853992453800}
+  SlotPrefab: {fileID: 3360722934944860211, guid: 3095a51b7f59fd547a8e982ade868732, type: 3}
 --- !u!1 &4894484853569420915
 GameObject:
   m_ObjectHideFlags: 0

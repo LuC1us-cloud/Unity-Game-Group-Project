@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     bool shiftClickedOnce = false;
     bool shiftClickedTwice = false;
     float shiftClickInterval = 0.5f;
-    float SpecialAbilityActiveTime = 0;
-    float SpecialAbilityDuration = 4f;
+    // float SpecialAbilityActiveTime = 0;
+    // float SpecialAbilityDuration = 4f;
 
     // Update is called once per frame
     void Update()

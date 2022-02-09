@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5413343511567234063}
-  - component: {fileID: 5413343511567234062}
+  - component: {fileID: 215471220}
   - component: {fileID: 5413343511567234061}
+  - component: {fileID: 5413343511567234062}
   - component: {fileID: 5413343511567234060}
   - component: {fileID: -959889842686621993}
-  - component: {fileID: 4464193331719634205}
   m_Layer: 0
   m_Name: Main Player
   m_TagString: Player
@@ -38,6 +38,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215471220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413343511567234057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a509bb14167e704c8e53e3f39cc15fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 0}
+  speed: 3
+  CurrentHealth: 100
+  MaxHealth: 100
+  Damage: 10
+  Armor: 10
+  PassiveHealingInterval: 5
+  PassiveHealingAmount: 10
+  isInvincible: 0
+  isStunned: 0
+  inventory: []
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+--- !u!114 &5413343511567234061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413343511567234057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9130243f63193e42a40fd4c6063c09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rb: {fileID: 5413343511567234060}
+  cam: {fileID: 0}
+  specialAbility: 0
+  dashDistance: 20
 --- !u!212 &5413343511567234062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,23 +132,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5413343511567234061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5413343511567234057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9130243f63193e42a40fd4c6063c09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 5413343511567234060}
-  cam: {fileID: 0}
-  specialAbility: 0
-  dashDistance: 20
 --- !u!50 &5413343511567234060
 Rigidbody2D:
   serializedVersion: 4
@@ -144,38 +169,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4464193331719634205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5413343511567234057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a509bb14167e704c8e53e3f39cc15fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageText: {fileID: 0}
-  speed: 3
-  CurrentHealth: 100
-  MaxHealth: 100
-  Damage: 10
-  Armor: 10
-  PassiveHealingInterval: 5
-  PassiveHealingAmount: 10
-  inventory: []
-  Head: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
-  Feet: {fileID: 0}
-  Hands: {fileID: 0}
-  Weapon: {fileID: 0}
-  Shield: {fileID: 0}
-  Ring: {fileID: 0}
-  Necklace: {fileID: 0}
-  Amulet: {fileID: 0}
-  Belt: {fileID: 0}
 --- !u!1 &5413343512175988912
 GameObject:
   m_ObjectHideFlags: 0

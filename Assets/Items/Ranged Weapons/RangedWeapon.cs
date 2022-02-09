@@ -23,34 +23,29 @@ public class RangedWeapon : Item
     // public float attackKnockbackDuration;
     // public float attackKnockbackDistance;
     private bool canAttack = true;
-    private float timeSinceLastAttack = 0;
+    private float shootingTimer = 0;
     public void Shoot()
     {
-        if (canAttack)
+        if (!canAttack) return;
+        canAttack = false;
+
+        foreach (Transform firePoint in firePoint)
         {
-            canAttack = false;
-            foreach(Transform firePoint in firePoint)
-            {
-                GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
-                bullet.GetComponent<Projectile>().SetProjectileLifeTime(attackRange);
-                bullet.GetComponent<Projectile>().SetDamage(Random.Range(minDamage, maxDamage));
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.velocity = firePoint.up * projectileVelocity;
-            }
-            // var damage = Random.Range(minDamage, maxDamage);
-            // var bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
-            // bullet.GetComponent<Projectile>().SetDamage(damage);
-            // var rb = bullet.GetComponent<Rigidbody2D>();
-            // rb.AddForce(firePoint.up * projectileVelocity, ForceMode2D.Impulse);
+            GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<Projectile>().SetProjectileLifeTime(attackRange);
+            bullet.GetComponent<Projectile>().SetDamage(Random.Range(minDamage, maxDamage));
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = firePoint.up * projectileVelocity;
         }
+
     }
     private void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
-        if (timeSinceLastAttack >= 1 / attackSpeed)
+        if (!canAttack) shootingTimer += Time.deltaTime;
+        if (shootingTimer >= 1 / attackSpeed)
         {
             canAttack = true;
-            timeSinceLastAttack = 0;
+            shootingTimer = 0;
         }
     }
 }

@@ -22,13 +22,13 @@ public class Item : MonoBehaviour
         Epic,
         Legendary
     }
+    private GameObject self;
     [HideInInspector]
     public string itemName;
     [HideInInspector]
     public string description;
     [HideInInspector]
     public int value;
-    [HideInInspector]
     public Sprite sprite;
     [HideInInspector]
     public bool stackable;
@@ -46,6 +46,29 @@ public class Item : MonoBehaviour
     public ItemType type;
     [HideInInspector]
     public ItemRarity rarity;
+    public bool isOnGround = true;
+    private void Start() {
+        self = gameObject;
+    }
+    
+    /// <summary>
+    /// Use this function to drop the item, returns amount of items left in the stack
+    /// </summary>
+    public int Drop(Transform position){
+        // if the item is stackable and the quantity is greater than 1
+        // then decrement the quantity and return
+        // if (stackable && quantity > 1)
+        // {
+        //     quantity--;
+        //     Instantiate(self, position.position, position.rotation);
+        //     return quantity;
+        // }
+        // activate item
+        self.SetActive(true);
+        isOnGround = true;
+        transform.position = new Vector3(position.position.x, position.position.y, transform.position.z);
+        return 0;
+    }
 }
 #if UNITY_EDITOR
 [CustomEditor(typeof(Item))]
@@ -59,7 +82,6 @@ public class ItemEditor : Editor
         item.itemName = EditorGUILayout.TextField("Item Name", item.itemName);
         item.description = EditorGUILayout.TextField("Description", item.description);
         item.value = EditorGUILayout.IntField("Value", item.value);
-        item.sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", item.sprite, typeof(Sprite), false);
         item.stackable = EditorGUILayout.Toggle("Stackable", item.stackable);
         if (item.stackable)
         {

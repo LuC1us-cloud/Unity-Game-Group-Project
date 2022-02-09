@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1745072820676698264}
   - component: {fileID: 1745072820676698268}
   - component: {fileID: 1745072820676698269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MageEnemy
   m_TagString: MageEnemy
   m_Icon: {fileID: 0}

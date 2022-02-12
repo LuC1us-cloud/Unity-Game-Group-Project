@@ -9,7 +9,7 @@ public class Rocket : Projectile
     public LayerMask layers;
 
     private void FixedUpdate()
-    {
+    { 
         // if bullet is alive for too long, destroy it
         timeAlive += Time.deltaTime;
         if (timeAlive >= timeToLive)
@@ -18,7 +18,6 @@ public class Rocket : Projectile
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                Debug.Log("hit");
                 if (enemy.gameObject.tag == "Enemy")
                 {
                     enemy.gameObject.GetComponent<Entity>().TakeDamage(damage);
@@ -38,7 +37,6 @@ public class Rocket : Projectile
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("hit" + enemy.name);
             if (enemy.gameObject.tag == "Enemy")
             {
                 enemy.gameObject.GetComponent<Entity>().TakeDamage(damage);
@@ -55,5 +53,6 @@ public class Rocket : Projectile
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    
     }
 }

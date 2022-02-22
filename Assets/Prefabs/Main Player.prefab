@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5413343511567234062}
   - component: {fileID: 5413343511567234060}
   - component: {fileID: -959889842686621993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   isInvincible: 0
   isStunned: 0
   inventory: []
+  inventoryUI: {fileID: 0}
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
 --- !u!114 &5413343511567234061
@@ -75,6 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9130243f63193e42a40fd4c6063c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ff_PushawayPrefab: {fileID: 0}
+  Ff_ShieldPrefab: {fileID: 0}
+  Ff_DamagePrefab: {fileID: 0}
+  GravityOrbPrefab: {fileID: 0}
   moveSpeed: 5
   rb: {fileID: 5413343511567234060}
   cam: {fileID: 0}

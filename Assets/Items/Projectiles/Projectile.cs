@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour
 {
     private List<GameObject> colliders = new List<GameObject>();
     public int numberOfHits = 1;
-    private int damage;
-    private float timeAlive = 0;
-    private float timeToLive = 10;
+    protected int damage;
+    protected float timeAlive = 0;
+    protected float timeToLive = 10;
     private void FixedUpdate()
     {
         // if bullet is alive for too long, destroy it

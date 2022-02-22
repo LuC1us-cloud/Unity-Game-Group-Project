@@ -13,13 +13,7 @@ GameObject:
   - component: {fileID: 4097584380155601389}
   - component: {fileID: 563360489805982017}
   - component: {fileID: -8784851552168518642}
-<<<<<<< Updated upstream:Assets/Prefabs/Testing/Entity.prefab
   m_Layer: 0
-=======
-  - component: {fileID: 5080500921608302120}
-  - component: {fileID: -4598808088511805330}
-  m_Layer: 6
->>>>>>> Stashed changes:Assets/Prefabs/Entity.prefab
   m_Name: Entity
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -39,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &969482167347282243
 SpriteRenderer:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4924369160114434395}
   - component: {fileID: 4924369160114434398}
   - component: {fileID: 4924369160114434399}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall (Testing)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,8 +107,6 @@ MonoBehaviour:
   Armor: 0
   PassiveHealingInterval: 5
   PassiveHealingAmount: 10
-  isInvincible: 0
-  isStunned: 0
 --- !u!61 &4924369160114434398
 BoxCollider2D:
   m_ObjectHideFlags: 0

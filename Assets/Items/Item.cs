@@ -67,6 +67,8 @@ public class Item : MonoBehaviour
         self.SetActive(true);
         isOnGround = true;
         transform.position = new Vector3(position.position.x, position.position.y, transform.position.z);
+        // change the rotation to random rotation
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         return 0;
     }
 }

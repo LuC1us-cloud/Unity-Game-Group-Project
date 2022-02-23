@@ -32,12 +32,20 @@ public class PlayerMovement : MonoBehaviour
     // float SpecialAbilityActiveTime = 0;
     // float SpecialAbilityDuration = 4f;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector2 lookDirection = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
+
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+    private void Update() {
         if (shiftClickedOnce && Input.GetKeyDown(KeyCode.LeftShift) && !shiftClickedTwice && 0 < shiftClickInterval)
         {
             shiftClickedTwice = true;
@@ -57,16 +65,6 @@ public class PlayerMovement : MonoBehaviour
                 shiftClickInterval = 0.5f;
             }
         }
-
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
-    private void FixedUpdate()
-    {
-        Vector2 lookDirection = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
-
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         if (shiftClickedTwice)
         {

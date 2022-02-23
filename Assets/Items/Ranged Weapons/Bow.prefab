@@ -60,7 +60,7 @@ MonoBehaviour:
   type: 2
   rarity: 0
   isOnGround: 1
-  projectile: {fileID: 8272277826366540553, guid: 62733746f2324f2498222e45b778b82d, type: 3}
+  projectile: {fileID: 8272277826366540553, guid: 1784c97095679694bb54241e241a204f, type: 3}
   firePoint:
   - {fileID: 3230462387267867557}
   minDamage: 15

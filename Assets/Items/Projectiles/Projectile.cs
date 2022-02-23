@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         {
             case "Enemy":
                 other.gameObject.GetComponent<Entity>().TakeDamage(damage);
-                Physics2D.IgnoreCollision(other.collider, GetComponent<CircleCollider2D>());
+                Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
                 break;
             case "MageEnemy":
                 other.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);

@@ -123,4 +123,12 @@ public class MainPlayer : Entity
             hit.collider.attachedRigidbody.velocity = pushDir * 2.5f;   //multiply by push strength
         }
     }
+    public void TakeDamage(int damage)
+    {
+        // damage can't be less than 1
+        int damageToTake = Mathf.Max(1, damage);
+        this.CurrentHealth -= damageToTake;
+        DamageIndicator damageIndicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        damageIndicator.SetDamageText(damageToTake);
+    }
 }

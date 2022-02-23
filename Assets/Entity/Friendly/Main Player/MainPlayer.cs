@@ -114,15 +114,4 @@ public class MainPlayer : Entity
             item.SetActive(false);
         }
     }
-
-    //Method to move blocks with the tag 'Movable'
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.CompareTag("Movable"))
-        {
-            if (hit.collider.gameObject.GetComponent<Rigidbody>() == null) return;
-            var pushDir = new Vector3(hit.moveDirection.x, 0, 0);
-            hit.collider.attachedRigidbody.velocity = pushDir * 2.5f;   //multiply by push strength
-        }
-    }
 }

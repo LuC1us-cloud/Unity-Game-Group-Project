@@ -66,9 +66,16 @@ public class MainPlayer : Entity
         if (hit.collider != null)
         {
             // check if the GameObject under the cursor is closer than 2 to the MainPlayer
-            if (Vector2.Distance(transform.position, hit.collider.transform.position) > 2f) return;
-            // if the GameObject under the cursor has an Interactable component
-            if (hit.collider.GetComponent<Interactable>() != null) hit.collider.GetComponent<Interactable>().Interact();
+            if (Vector2.Distance(transform.position, hit.collider.transform.position) < 2f)
+            {
+                // if the GameObject under the cursor has an Interactable component
+                if (hit.collider.GetComponent<Interactable>() != null)
+                {
+                    // call the Interact() function
+                    hit.collider.GetComponent<Interactable>().Interact();
+                    return;
+                }
+            }
         }
         // get all gameObjects with tag "Item" in radius of 1.5f of the MainPlayer
         Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, 1.5f);
@@ -122,13 +129,5 @@ public class MainPlayer : Entity
             var pushDir = new Vector3(hit.moveDirection.x, 0, 0);
             hit.collider.attachedRigidbody.velocity = pushDir * 2.5f;   //multiply by push strength
         }
-    }
-    public void TakeDamage(int damage)
-    {
-        // damage can't be less than 1
-        int damageToTake = Mathf.Max(1, damage);
-        this.CurrentHealth -= damageToTake;
-        DamageIndicator damageIndicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
-        damageIndicator.SetDamageText(damageToTake);
     }
 }

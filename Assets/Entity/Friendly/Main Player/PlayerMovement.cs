@@ -46,6 +46,26 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
     private void Update() {
+        // Temporary for testing purposes
+        // if 'r' is clicked, cycle through special abilities
+        if (Input.GetKeyDown(KeyCode.R)) {
+            if (specialAbility == SpecialAbility.None) {
+                specialAbility = SpecialAbility.Dash;
+            } else if (specialAbility == SpecialAbility.Dash) {
+                specialAbility = SpecialAbility.Forcefield_Pushaway;
+            } else if (specialAbility == SpecialAbility.Forcefield_Pushaway) {
+                specialAbility = SpecialAbility.Forcefield_Shield;
+            } else if (specialAbility == SpecialAbility.Forcefield_Shield) {
+                specialAbility = SpecialAbility.Forcefield_Damage;
+            } else if (specialAbility == SpecialAbility.Forcefield_Damage) {
+                specialAbility = SpecialAbility.Gravity_Orb;
+            } else if (specialAbility == SpecialAbility.Gravity_Orb) {
+                specialAbility = SpecialAbility.None;
+            }
+        }
+
+        //-------------------------------
+
         if (shiftClickedOnce && Input.GetKeyDown(KeyCode.LeftShift) && !shiftClickedTwice && 0 < shiftClickInterval)
         {
             shiftClickedTwice = true;

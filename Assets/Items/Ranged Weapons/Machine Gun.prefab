@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187619801868137919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.9521116}
-  m_LocalScale: {x: 0.43, y: 1.03, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8677749768361077577}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 152718270932f3f41b41423777d218d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822517357029603182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.060199976, y: 0.51294, z: 1.9521116}
+  m_LocalPosition: {x: -0.060199976, y: 0.51294, z: 0}
   m_LocalScale: {x: 0.43, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003358309256484417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09459996, y: 0.51294, z: 1.9521116}
+  m_LocalPosition: {x: 0.09459996, y: 0.51294, z: 0}
   m_LocalScale: {x: 0.43, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026254079459140743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15479994, y: 0.51294, z: 1.9521116}
+  m_LocalPosition: {x: 0.15479994, y: 0.51294, z: 0}
   m_LocalScale: {x: 0.43, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,8 +203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5679769193743836020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.35, y: -0.48, z: -1.9521116}
-  m_LocalScale: {x: 0.52, y: 0.67, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8940408418996023578}
@@ -230,7 +230,7 @@ MonoBehaviour:
   itemName: Machine Gun
   description: Shoot fast.
   value: 6969
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 152718270932f3f41b41423777d218d6, type: 3}
   stackable: 0
   maxStack: 0
   quantity: 0
@@ -239,6 +239,7 @@ MonoBehaviour:
   isEquipped: 0
   type: 2
   rarity: 3
+  isOnGround: 1
   projectile: {fileID: 8272277826366540553, guid: 62733746f2324f2498222e45b778b82d, type: 3}
   firePoint:
   - {fileID: 256699831548776416}
@@ -290,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064606111728181035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15910006, y: 0.51294, z: 1.9521116}
+  m_LocalPosition: {x: -0.15910006, y: 0.51294, z: 0}
   m_LocalScale: {x: 0.43, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Enemy":
-                other.gameObject.GetComponent<Entity>().TakeDamage(damage);
+                other.gameObject.GetComponent<Entity>().TakeDamage(damage, other.contacts[0].point);
                 Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
                 break;
             case "MageEnemy":

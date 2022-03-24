@@ -2132,6 +2132,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (Testing) (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4924369160114434395, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
+      propertyPath: Armor
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924369160114434395, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
+      propertyPath: Damage
+      value: 1000000
+      objectReference: {fileID: 0}
     - target: {fileID: 4924369160114434397, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -2982,6 +2990,14 @@ PrefabInstance:
     - target: {fileID: 4924369160114434394, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
       propertyPath: m_Name
       value: Wall (Testing) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924369160114434395, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
+      propertyPath: Armor
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924369160114434395, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
+      propertyPath: Damage
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 4924369160114434397, guid: 4645088d9bf0b9f4a850fdf26b001aa9, type: 3}
       propertyPath: m_RootOrder
@@ -3849,17 +3865,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1173613780, guid: 00549e96c4256184499354349ab0a59d, type: 3}
-      propertyPath: m_margin.x
-      value: 9.379639
+    - target: {fileID: 11736974, guid: 00549e96c4256184499354349ab0a59d, type: 3}
+      propertyPath: m_text
+      value: Main Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1173613780, guid: 00549e96c4256184499354349ab0a59d, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
+    - target: {fileID: 11736974, guid: 00549e96c4256184499354349ab0a59d, type: 3}
+      propertyPath: m_fontSize
+      value: 28.75
       objectReference: {fileID: 0}
-    - target: {fileID: 1173613780, guid: 00549e96c4256184499354349ab0a59d, type: 3}
-      propertyPath: m_enableWordWrapping
+    - target: {fileID: 11736974, guid: 00549e96c4256184499354349ab0a59d, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11736974, guid: 00549e96c4256184499354349ab0a59d, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 0.21318105
+      objectReference: {fileID: 0}
+    - target: {fileID: 11736974, guid: 00549e96c4256184499354349ab0a59d, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7246369488597351912, guid: 00549e96c4256184499354349ab0a59d, type: 3}
       propertyPath: m_Name

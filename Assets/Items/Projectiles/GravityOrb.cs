@@ -42,7 +42,7 @@ public class GravityOrb : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             // if enemy is an enemy
-            if (enemy.gameObject.tag == "Enemy")
+            if (enemy.gameObject.tag == "Enemy" && enemy.GetComponent<Rigidbody2D>() != null)
             {
                 // get direction to enemy
                 Vector2 direction = enemy.transform.position - transform.position;

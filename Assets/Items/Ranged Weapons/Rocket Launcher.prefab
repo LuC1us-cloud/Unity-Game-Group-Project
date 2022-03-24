@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373810214667293987}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.035480537, y: 1.42, z: -0.01523464}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 5726309624171341517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.7128, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8969271365679776320}
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bae5906dbf575da44911c4b32e08f3c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,9 +125,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8969271365679776320}
   - component: {fileID: 8521378662010542560}
+  - component: {fileID: 4998302450446958613}
   m_Layer: 0
   m_Name: Rocket Launcher
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +148,7 @@ Transform:
   - {fileID: 4794161278530448633}
   - {fileID: 3110921117782248539}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8521378662010542560
 MonoBehaviour:
@@ -164,15 +165,16 @@ MonoBehaviour:
   itemName: Rocket Launcher
   description: Shoots rockets that deal AoE damage
   value: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bae5906dbf575da44911c4b32e08f3c2, type: 3}
   stackable: 0
   maxStack: 0
   quantity: 0
   consumable: 0
-  equippable: 0
+  equippable: 1
   isEquipped: 0
-  type: 0
-  rarity: 0
+  type: 2
+  rarity: 3
+  isOnGround: 1
   projectile: {fileID: 5502231167561948019, guid: d762a403b2ca0a24e9c319f048498048, type: 3}
   firePoint:
   - {fileID: 3110921117782248539}
@@ -181,3 +183,19 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 20
   projectileVelocity: 30
+--- !u!58 &4998302450446958613
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665751109173563003}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25

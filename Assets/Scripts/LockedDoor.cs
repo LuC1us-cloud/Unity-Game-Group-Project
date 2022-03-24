@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class LockedDoor : MonoBehaviour
 {
-    private Collider collider;  // Used only if we choose not to destroy the door
     private int count;  // Number of pressure plates with blocks on them
+    public int numberOfPlates = 1;
 
     private void Awake()
     {
-        collider = GetComponent<Collider>();
         count = 0;
     }
 
@@ -17,10 +16,8 @@ public class LockedDoor : MonoBehaviour
     public void Open()
     {
         count++;
-        if (count == 5) // Arbitrary number of plates, depends on what we want for the level
+        if (count == numberOfPlates) // Arbitrary number of plates, depends on what we want for the level
         {
-            collider.enabled = false;   // Kept it in but this would be used for the
-                                        // 'not destroy the door' option for the level
             Destroy(gameObject);
         }
     }

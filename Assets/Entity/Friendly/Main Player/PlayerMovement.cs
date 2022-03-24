@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
         Forcefield_Shield,
         Forcefield_Damage,
         Gravity_Orb,
+        Grappling_Hook,
     }
     public GameObject Ff_PushawayPrefab;
     public GameObject Ff_ShieldPrefab;
@@ -49,19 +50,7 @@ public class PlayerMovement : MonoBehaviour
         // Temporary for testing purposes
         // if 'r' is clicked, cycle through special abilities
         if (Input.GetKeyDown(KeyCode.R)) {
-            if (specialAbility == SpecialAbility.None) {
-                specialAbility = SpecialAbility.Dash;
-            } else if (specialAbility == SpecialAbility.Dash) {
-                specialAbility = SpecialAbility.Forcefield_Pushaway;
-            } else if (specialAbility == SpecialAbility.Forcefield_Pushaway) {
-                specialAbility = SpecialAbility.Forcefield_Shield;
-            } else if (specialAbility == SpecialAbility.Forcefield_Shield) {
-                specialAbility = SpecialAbility.Forcefield_Damage;
-            } else if (specialAbility == SpecialAbility.Forcefield_Damage) {
-                specialAbility = SpecialAbility.Gravity_Orb;
-            } else if (specialAbility == SpecialAbility.Gravity_Orb) {
-                specialAbility = SpecialAbility.None;
-            }
+            specialAbility = (SpecialAbility)(((int)specialAbility + 1) % System.Enum.GetValues(typeof(SpecialAbility)).Length);
         }
 
         //-------------------------------

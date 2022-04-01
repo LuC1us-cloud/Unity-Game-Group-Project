@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1745072820676698264}
   - component: {fileID: 1745072820676698268}
   - component: {fileID: 1745072820676698269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MageEnemy
   m_TagString: MageEnemy
   m_Icon: {fileID: 0}
@@ -120,14 +120,11 @@ MonoBehaviour:
   damageText: {fileID: 2546655912905155981, guid: d1d7be29d82fa3345943910f8a6054f7, type: 3}
   CurrentHealth: 50
   MaxHealth: 50
-  Damage: 10
   Armor: 10
-  PassiveHealingInterval: 5
-  PassiveHealingAmount: 10
+  detectionRadius: 10
   stoppingDistance: 7
   retreaDistance: 4
-  startTimeBtwShots: 0.5
-  player: {fileID: 0}
+  startTimeBtwShots: 2
   projectile: {fileID: 2864909886633717992, guid: 3ad077b094ee1014897f706dba6e5ef7, type: 3}
 --- !u!58 &1745072820676698268
 CircleCollider2D:
@@ -165,4 +162,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

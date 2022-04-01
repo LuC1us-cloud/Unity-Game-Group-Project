@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 9040044522634143669}
   m_Layer: 3
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,14 +287,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &-1569168407546797742
 MonoBehaviour:
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da3c1ffcbcbca0499e9f653e7b88069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfHits: 1
 --- !u!61 &9040044522634143669
 BoxCollider2D:
   m_ObjectHideFlags: 0

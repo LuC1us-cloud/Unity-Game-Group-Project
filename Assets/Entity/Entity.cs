@@ -6,13 +6,15 @@ public class Entity : MonoBehaviour
 {
     public GameObject damageText;
     public float speed = 3f;
+    public int damageInterval = 1; 
     public int CurrentHealth = 100;
     public int MaxHealth = 100;
-    public int Damage = 10;
+    public int Damage = 5;
     public int Armor = 10;
     public int PassiveHealingInterval = 5;
     public int PassiveHealingAmount = 10;
     private float timeSinceLastHeal = 0;
+    private float timeSinceLastDamge = 0;
     public bool isInvincible = false;
     public bool isStunned = false;
     private void FixedUpdate()
@@ -33,14 +35,26 @@ public class Entity : MonoBehaviour
                 timeSinceLastHeal = 0;
             }
         }
+        if(timeSinceLastDamge <= damageInterval){
+            timeSinceLastDamge += Time.deltaTime;
+        }
     }
-    public void TakeDamage(int damage)
+    /// <summary>
+    /// Take damage from a source
+    /// </summary>
+    /// <param name="damage">The amount of damage to take</param>
+    /// <param name="hitPoint">Location to spawn the damage text. <para/> Default: transform.position</param>
+    public void TakeDamage(int damage, Vector3 hitPoint = new Vector3())
     {
+        if (hitPoint == new Vector3())
+        {
+            hitPoint = transform.position;
+        }
         if(isInvincible) return;
         // damage can't be less than 1
         int damageToTake = Mathf.Max(1, damage - Armor);
         CurrentHealth -= damageToTake;
-        DamageIndicator damageIndicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        DamageIndicator damageIndicator = Instantiate(damageText, hitPoint, Quaternion.identity).GetComponent<DamageIndicator>();
         damageIndicator.SetDamageText(damageToTake);
     }
 
@@ -61,5 +75,12 @@ public class Entity : MonoBehaviour
         if (rb == null) return;
         // move to position
         rb.MovePosition(position);
+    }
+
+    private void OnCollisionStay2D(Collision2D other) {        
+        if(other.gameObject.tag == "Player" && timeSinceLastDamge >= damageInterval){
+            other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
+            timeSinceLastDamge = 0;
+        }
     }
 }

@@ -61,16 +61,21 @@ public class MainPlayer : Entity
         // else search for the nearest Item and call the PickUp() function
 
         // get the GameObject under the cursor, by raycasting from cursor position
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
         if (hit.collider != null)
         {
-            // check if the GameObject under the cursor is closer than 1.5f to the MainPlayer
-            if (Vector2.Distance(transform.position, hit.collider.transform.position) > 1.5f) return;
-            // if the GameObject under the cursor has an Interactable component
-            if (hit.collider.GetComponent<Interactable>() == null) return;
-            // call the Interact() function
-            hit.collider.GetComponent<Interactable>().Interact();
-            return;
+            // check if the GameObject under the cursor is closer than 2 to the MainPlayer
+            if (Vector2.Distance(transform.position, hit.collider.transform.position) < 2f)
+            {
+                // if the GameObject under the cursor has an Interactable component
+                if (hit.collider.GetComponent<Interactable>() != null)
+                {
+                    // call the Interact() function
+                    hit.collider.GetComponent<Interactable>().Interact();
+                    return;
+                }
+            }
         }
         // get all gameObjects with tag "Item" in radius of 1.5f of the MainPlayer
         Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, 1.5f);
@@ -112,6 +117,17 @@ public class MainPlayer : Entity
             item.GetComponent<Item>().isOnGround = false;
             // disable the item
             item.SetActive(false);
+        }
+    }
+
+    //Method to move blocks with the tag 'Movable'
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Movable"))
+        {
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() == null) return;
+            var pushDir = new Vector3(hit.moveDirection.x, 0, 0);
+            hit.collider.attachedRigidbody.velocity = pushDir * 2.5f;   //multiply by push strength
         }
     }
 }

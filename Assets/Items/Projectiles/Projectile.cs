@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour
 {
     private List<GameObject> colliders = new List<GameObject>();
     public int numberOfHits = 1;
-    private int damage;
-    private float timeAlive = 0;
-    private float timeToLive = 10;
+    protected int damage;
+    protected float timeAlive = 0;
+    protected float timeToLive = 10;
     private void FixedUpdate()
     {
         // if bullet is alive for too long, destroy it
@@ -23,8 +23,8 @@ public class Projectile : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Enemy":
-                other.gameObject.GetComponent<Entity>().TakeDamage(damage);
-                Physics2D.IgnoreCollision(other.collider, GetComponent<CircleCollider2D>());
+                other.gameObject.GetComponent<Entity>().TakeDamage(damage, other.contacts[0].point);
+                Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
                 break;
             case "MageEnemy":
                 other.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);

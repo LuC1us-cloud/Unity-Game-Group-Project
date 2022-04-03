@@ -11,4 +11,4 @@ Name of the branch should be the name of the feature being implemented, but also
 # How to make a <b>Pull Request</b>
 1) In Github Desktop go to Branch -> Create a Pull Request | OR press ctrl+R. You will be redirected to the Github.com page for making Pull requests.
 2) Add a title and a comment for your feature to be added.
-3) Press <b>Create pull request</b>. That's it. Make sure you <u>DON'T MERGE</u> the branches.
+3) Press <b>Create pull request</b>. That's it. Make sure you <b>DON'T MERGE</b> the branches.

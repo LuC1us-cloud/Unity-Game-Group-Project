@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - MageEnemy
   - Projectile
+  - Item
+  - InventoryUI
+  - Equipment Parent
+  - Wall
+  - Movable
   layers:
   - Default
   - TransparentFX
@@ -16,7 +21,7 @@ TagManager:
   - UI
   - Enemy
   - Player
-  - 
+  - Wall
   - 
   - 
   - 

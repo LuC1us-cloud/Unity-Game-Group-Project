@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 601552367}
   - component: {fileID: 601552366}
   - component: {fileID: 601552368}
+  - component: {fileID: 601552369}
   m_Layer: 0
   m_Name: ColorDamageArea2
   m_TagString: Untagged
@@ -577,6 +578,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &601552369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601552365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5ab61b63eaa69489839f9fb7df91cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &951157131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1201,7 @@ GameObject:
   - component: {fileID: 1230507072}
   - component: {fileID: 1230507071}
   - component: {fileID: 1230507073}
+  - component: {fileID: 1230507074}
   m_Layer: 0
   m_Name: ColorDamageArea
   m_TagString: Untagged
@@ -1288,6 +1302,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1230507074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230507070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5ab61b63eaa69489839f9fb7df91cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1293918390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1328,7 @@ GameObject:
   - component: {fileID: 1293918396}
   - component: {fileID: 1293918395}
   - component: {fileID: 1293918394}
+  - component: {fileID: 1293918397}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Enemy
@@ -1458,6 +1485,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1293918397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293918390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d061230fa8eb4864dbfa6b1bebf3ad9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageFields:
+  - {fileID: 1230507072}
+  - {fileID: 601552367}
+  timeBetweenWaves: 5
+  waveCountdown: 0
 --- !u!20 &1357008762 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1312133440039528571, guid: 6040f573a7b406b488c83a0f0039d4df, type: 3}

@@ -8,6 +8,11 @@ TagManager:
   - MageEnemy
   - Projectile
   - Item
+  - ignore
+  - Wall
+  - InventoryUI
+  - Equipment Parent
+  - Movable
   layers:
   - Default
   - TransparentFX
@@ -17,6 +22,10 @@ TagManager:
   - UI
   - Enemy
   - Player
+  - WallBossIgnor
+  - Wall
+  - FireBallBoss
+  - Shield
   - 
   - 
   - 

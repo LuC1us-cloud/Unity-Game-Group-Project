@@ -17,32 +17,36 @@ public class BossDamageAreaControler : MonoBehaviour
     private Color tranperentRed;
     private Color tranperentWhite;
 
+    public GameObject boss;
+    private Entity entity;
+
     private void Start()
     {
         tranperentGreen = new Color(0, 1f, 0.05f, 0.2f);
         tranperentRed = new Color(1f, 0, 0, 0.2f);
         tranperentWhite = new Color(1f, 1f, 1f, 0.1f);
         waveCountdown = timeBetweenWaves;
-
     }
 
     private void Update()
     {
-        if (state == SpawnState.WAITING)
+        entity = boss.GetComponent<Entity>();
+        if(entity.CurrentHealth <= entity.MaxHealth / 2)
         {
-            if (waveCountdown >= 0)
+            if (state == SpawnState.WAITING)
             {
-                waveCountdown -= Time.deltaTime;
-                return;
+                if (waveCountdown >= 0)
+                {
+                    waveCountdown -= Time.deltaTime;
+                    return;
+                }
+            }
+
+            if (state != SpawnState.DAMAGE)
+            {
+                StartCoroutine(DamagePhase(nextField));
             }
         }
-
-        if (state != SpawnState.DAMAGE)
-        {
-            StartCoroutine(DamagePhase(nextField));
-        }
-
-
     }
 
     // coroutine for spawning enemies in fixed time intervals

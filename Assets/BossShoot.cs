@@ -21,7 +21,6 @@ public class BossShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        entity = boss.GetComponent<Entity>(); //Might need for later
         if(timeBtwShots <= 0){
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;

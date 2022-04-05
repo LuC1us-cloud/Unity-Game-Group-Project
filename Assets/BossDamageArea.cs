@@ -22,7 +22,7 @@ public class BossDamageArea : MonoBehaviour
             if (entity.gameObject.tag == "Player")
             {
                 // apply damage to enemy
-                entity.GetComponent<Entity>().TakeDamage(damage);
+                entity.GetComponent<Entity>().TakeDamage(damage*10);
             }
         }
 

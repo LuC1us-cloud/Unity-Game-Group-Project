@@ -18,11 +18,9 @@ public class EnemyProjectile : Projectile
         
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Hit!");
             other.gameObject.GetComponent<MainPlayer>().TakeDamage(damage);
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
 
     }
 }

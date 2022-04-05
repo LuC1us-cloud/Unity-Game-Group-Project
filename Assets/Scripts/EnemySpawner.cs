@@ -64,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    //script for displaying or doing something after all waves have been completed
     void WaveCompleted()
     {
         Debug.Log("Wave completed!");
@@ -81,12 +82,14 @@ public class EnemySpawner : MonoBehaviour
          }
     }
 
+    // script for checking if there are enemies left before spawning the next wave
     bool EnemyIsAlive()
     {
         searchCountdown -= Time.deltaTime;
         if (searchCountdown <= 0)
         { 
             searchCountdown = 1f;
+            //the checking function can and should be changed for something suitable
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 return false;
@@ -95,7 +98,8 @@ public class EnemySpawner : MonoBehaviour
         }
         return true;
     }
-
+    
+    // coroutine for spawning enemies in fixed time intervals
     IEnumerator SpawnWave(Wave _wave)
     {
         Debug.Log("Spawning wave " + _wave.name);
@@ -113,6 +117,7 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    //scrip for insanciating the enemy object
     void SpawnEnemy(Enemy _enemy)
     {
         Debug.Log("Spawning Enemy: " + _enemy.enemy.name);

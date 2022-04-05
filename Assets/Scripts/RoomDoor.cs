@@ -23,6 +23,14 @@ public class RoomDoor : MonoBehaviour
             {
                 player.transform.position = nextPosition.position;
                 playerDetected = false;
+                if(gameObject.tag == "Exit")
+                {
+                    var enterPoints = GameObject.FindGameObjectsWithTag("Enter");
+                    foreach (var enter in enterPoints)
+                    {
+                        Destroy(enter);
+                    }
+                }
             }
         }
     }

@@ -1464,8 +1464,8 @@ MonoBehaviour:
   damageText: {fileID: 2546655912905155981, guid: d1d7be29d82fa3345943910f8a6054f7, type: 3}
   speed: 1
   damageInterval: 1
-  CurrentHealth: 200
-  MaxHealth: 200
+  CurrentHealth: 500
+  MaxHealth: 500
   Damage: 5
   Armor: 1
   PassiveHealingInterval: 5

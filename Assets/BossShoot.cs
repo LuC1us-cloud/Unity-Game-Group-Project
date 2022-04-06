@@ -21,13 +21,14 @@ public class BossShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeBtwShots <= 0){
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
+        entity = boss.GetComponent<Entity>();
+        if(entity.CurrentHealth < entity.MaxHealth)
         {
-            timeBtwShots -= Time.deltaTime;
+            if(timeBtwShots <= 0){
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else timeBtwShots -= Time.deltaTime;
         }
     }
 }

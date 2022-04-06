@@ -20,7 +20,6 @@ public class HealthBar : MonoBehaviour
         entity = boss.GetComponent<Entity>();
         hp = (float)entity.CurrentHealth / (float)entity.MaxHealth;
         localScale.x = hp;
-        Debug.Log(localScale.x);
         transform.localScale = localScale;
     }
 }

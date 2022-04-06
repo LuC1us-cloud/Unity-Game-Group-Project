@@ -21,7 +21,6 @@ public class InspectEntityText : MonoBehaviour
     int health;
     int armor;
     int damage;
-    float timePast = 0;
     void Update()
     {
         GameObject entity;
@@ -38,40 +37,15 @@ public class InspectEntityText : MonoBehaviour
             entity = hit.collider.gameObject;
         }
         // if the new values are different, lerp to them gradually
-        int currentHealth = 0;
-        int currentArmor = 0;
-        int currentDamage = 0;
-        if (entity.GetComponent<Entity>().Armor != armor || entity.GetComponent<Entity>().CurrentHealth != health || entity.GetComponent<Entity>().Damage != damage)
-        {
-            currentHealth = (int)Mathf.LerpUnclamped(health, entity.GetComponent<Entity>().CurrentHealth, timePast);
-            currentArmor = (int)Mathf.LerpAngle(armor, entity.GetComponent<Entity>().Armor, timePast);
-            currentDamage = (int)Mathf.Lerp(damage, entity.GetComponent<Entity>().Damage, timePast);
-            timePast += Time.deltaTime * 10;
-        }
-        // if all values are equal, health, armor, damage to the current values
-        else
-        {
-            health = currentHealth;
-            armor = currentArmor;
-            damage = currentDamage;
-            timePast = 0;
-        }
-        
+        int currentHealth = entity.GetComponent<Entity>().CurrentHealth;
+        int currentArmor = entity.GetComponent<Entity>().Armor;
+        int currentDamage = entity.GetComponent<Entity>().Damage;
+
         StringBuilder textToDisplay = new StringBuilder($"Health: {currentHealth}\n");
         textToDisplay.Append($"Armor: {currentArmor}\n");
         textToDisplay.Append($"Damage: {currentDamage}\n");
         
         textStats.text = textToDisplay.ToString();
         textName.text = entity.gameObject.name;
-    }
-
-    // lerp to a new value gradually
-    IEnumerator LerpTo(string text, string newText)
-    {
-        for (float i = 0; i < 1; i += Time.deltaTime)
-        {
-            textStats.text = Mathf.Lerp(float.Parse(text), float.Parse(newText), i).ToString();
-            yield return null;
-        }
     }
 }

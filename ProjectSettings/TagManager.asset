@@ -13,6 +13,8 @@ TagManager:
   - InventoryUI
   - Equipment Parent
   - Movable
+  - Enter
+  - Exit
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2975990321
     locked: 0

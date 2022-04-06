@@ -11,7 +11,7 @@ public class PressurePlate : MonoBehaviour
         if (!other.CompareTag("Movable")) return;
         // Check how close the block must be to the plate
         // As in rn it has to be right on top of the plate with very minimal space not covered by the block
-        if (Vector2.Distance(transform.position, other.transform.position) > 0.2f) return;
+        if (Vector2.Distance(transform.position, other.transform.position) > 0.1f) return;
         Rigidbody2D rb = other.attachedRigidbody;
         //if (!(rb is null))
         //{
@@ -19,9 +19,13 @@ public class PressurePlate : MonoBehaviour
             //gameObject.GetComponentInChildren<Renderer>().material.color = Color.red;
         var renderer = gameObject.GetComponent<Renderer>();
         renderer.material.SetColor("_Color", Color.red);
-        LockedDoor door = FindObjectOfType<LockedDoor>();
+        var doors = FindObjectsOfType<LockedDoor>();
+        foreach (LockedDoor door in doors)
+        {
+            door.Open();    // 'Opens' the door (rn just removes the object)
+        }
         Destroy(this);
-        door.Open();    // 'Opens' the door (rn just removes the object)
+        
         //}
     }
 }

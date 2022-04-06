@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 1854608027749048302}
   - component: {fileID: 1854608027749048305}
   - component: {fileID: -4389418930276936060}
-  m_Layer: 0
-  m_Name: Entity
+  - component: {fileID: -7637123626479847045}
+  m_Layer: 6
+  m_Name: FastBoi
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1854608027749048303
 SpriteRenderer:
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,11 +105,11 @@ MonoBehaviour:
   damageInterval: 1
   CurrentHealth: 100
   MaxHealth: 100
-  Damage: 5
+  Damage: 30
   Armor: 0
   PassiveHealingInterval: 5
   PassiveHealingAmount: 10
-  isInvincible: 0
+  isInvincible: 1
   isStunned: 0
 --- !u!58 &1854608027749048305
 CircleCollider2D:
@@ -147,3 +148,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7637123626479847045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854608027749048301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ce5c4c1cf035445b740952ba393b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 5
+  detectionRadius: 10

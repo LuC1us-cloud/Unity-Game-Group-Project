@@ -52,10 +52,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageText: {fileID: 0}
   speed: 3
+  damageInterval: 1
   CurrentHealth: 100
   MaxHealth: 100
   Damage: 10
-  Armor: 10
+  Armor: 0
   PassiveHealingInterval: 5
   PassiveHealingAmount: 10
   isInvincible: 0

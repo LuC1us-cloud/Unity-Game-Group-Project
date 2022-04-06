@@ -32,6 +32,11 @@ public class Entity : MonoBehaviour
             if (timeSinceLastHeal >= PassiveHealingInterval)
             {
                 CurrentHealth += PassiveHealingAmount;
+                // if current health is more than max correct it
+                if (CurrentHealth > MaxHealth)
+                {
+                    CurrentHealth = MaxHealth;
+                }
                 timeSinceLastHeal = 0;
             }
         }

@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Ff_DamagePrefab;
     public GameObject GravityOrbPrefab;
     public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-    public Camera cam;
+    private Rigidbody2D rb;
+    private Camera cam;
     [Header("Double Shift Usage")]
     public SpecialAbility specialAbility = SpecialAbility.None;
     public float dashDistance = 20f;
@@ -33,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
     // float SpecialAbilityActiveTime = 0;
     // float SpecialAbilityDuration = 4f;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        cam = Camera.main;
+    }
     private void FixedUpdate()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -46,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-    private void Update() {
+    private void Update()
+    {
         // Temporary for testing purposes
         // if 'r' is clicked, cycle through special abilities
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             specialAbility = (SpecialAbility)(((int)specialAbility + 1) % System.Enum.GetValues(typeof(SpecialAbility)).Length);
         }
 

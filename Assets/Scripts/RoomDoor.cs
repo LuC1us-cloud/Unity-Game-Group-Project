@@ -2,53 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomDoor : MonoBehaviour
+public class RoomDoor : Interactable
 {
     [SerializeField]
     Transform nextPosition;
-    bool playerDetected = false;
     GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        playerDetected = false;
+        // Get mainplayer gameobject
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
-        if(playerDetected)
+        player.transform.position = nextPosition.position;
+        if (gameObject.tag == "Exit")
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            var enterPoints = GameObject.FindGameObjectsWithTag("Enter");
+            foreach (var enter in enterPoints)
             {
-                player.transform.position = nextPosition.position;
-                playerDetected = false;
-                if(gameObject.tag == "Exit")
-                {
-                    var enterPoints = GameObject.FindGameObjectsWithTag("Enter");
-                    foreach (var enter in enterPoints)
-                    {
-                        Destroy(enter);
-                    }
-                }
+                Destroy(enter);
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            playerDetected = true;
-            player = other.gameObject;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            playerDetected = false;
         }
     }
 }

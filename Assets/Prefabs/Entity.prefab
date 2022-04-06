@@ -105,7 +105,7 @@ MonoBehaviour:
   damageInterval: 1
   CurrentHealth: 100
   MaxHealth: 100
-  Damage: 5
+  Damage: 10
   Armor: 0
   PassiveHealingInterval: 5
   PassiveHealingAmount: 10

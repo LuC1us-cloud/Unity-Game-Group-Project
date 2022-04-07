@@ -32,11 +32,19 @@ public class fireBall : MonoBehaviour
             other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
             DestroyProjectile();
         }
+        if(other.gameObject.tag == "Movable"){
+            other.gameObject.GetComponent<Entity>().TakeDamage(Damage);
+            DestroyProjectile();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
             other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
+            DestroyProjectile();
+        }
+        if(other.gameObject.tag == "Movable"){
+            other.gameObject.GetComponent<Entity>().TakeDamage(Damage);
             DestroyProjectile();
         }
     }

@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
     }
+    public GameObject box;
     private void FixedUpdate()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -50,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
         rb.rotation = angle;
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (box != null){
+            box.GetComponent<Rigidbody2D>().MovePosition(box.GetComponent<Rigidbody2D>().position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
     private void Update()
     {

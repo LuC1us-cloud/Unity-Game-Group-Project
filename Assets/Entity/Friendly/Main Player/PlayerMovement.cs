@@ -32,10 +32,36 @@ public class PlayerMovement : MonoBehaviour
     float shiftClickInterval = 0.5f;
     // float SpecialAbilityActiveTime = 0;
     // float SpecialAbilityDuration = 4f;
+    private void Start()
+    {
+        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveLeft"]));
+        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveRight"]));
+        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveUp"]));
+        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveDown"]));
 
+    }
     private void FixedUpdate()
     {
+
+        // if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveLeft"]))
+        // {
+        //     movement.x = -1;
+        // }
+        // else if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveRight"]))
+        // {
+        //     movement.x = 1;
+        // }
+        // else { movement.x = 0; }
         movement.x = Input.GetAxisRaw("Horizontal");
+        // if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveDown"]))
+        // {
+        //     movement.y = -1;
+        // }
+        // else if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveUp"]))
+        // {
+        //     movement.y = 1;
+        // }
+        // else { movement.y = 0; }
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -46,10 +72,12 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-    private void Update() {
+    private void Update()
+    {
         // Temporary for testing purposes
         // if 'r' is clicked, cycle through special abilities
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyBindManager.MyInstance.ActionBinds["RotatePower"]))
+        {
             specialAbility = (SpecialAbility)(((int)specialAbility + 1) % System.Enum.GetValues(typeof(SpecialAbility)).Length);
         }
 

@@ -9,7 +9,7 @@ public class KeyBindManager : MonoBehaviour
 {
     private static KeyBindManager instance;
 
-    public static KeyBindManager MyInstance 
+    public static KeyBindManager MyInstance
     {
         get
         {
@@ -21,19 +21,21 @@ public class KeyBindManager : MonoBehaviour
         }
     }
 
-    public Dictionary<string, KeyCode> MovementBinds {get; set;}
-    public Dictionary<string, KeyCode> ActionBinds {get; private set;}
+    public Dictionary<string, KeyCode> MovementBinds { get; set; }
+    public Dictionary<string, KeyCode> ActionBinds { get; private set; }
     private string bindName;
     public GameObject[] keybindButtons;
 
-    // Start is called before the first frame update
-    private void Awake() 
-    {
-        keybindButtons = GameObject.FindGameObjectsWithTag("Keybind"); 
-    }
+    // // Start is called before the first frame update
+    // private void Awake() 
+    // {
+
+    // }
     void Start()
     {
-        
+
+        keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+
         MovementBinds = new Dictionary<string, KeyCode>();
 
         ActionBinds = new Dictionary<string, KeyCode>();
@@ -47,8 +49,12 @@ public class KeyBindManager : MonoBehaviour
         BindKey("RotatePower", KeyCode.R);
         BindKey("OpenInventory", KeyCode.Tab);
         BindKey("Interact", KeyCode.E);
+        this.gameObject.SetActive(false);
+        MovementBinds.ToList().ForEach(x => Debug.Log(x.Key));
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        ActionBinds.ToList().ForEach(x => Debug.Log(x.Key));
     }
-    
+
     public void BindKey(string key, KeyCode keyBind)
     {
         Dictionary<string, KeyCode> currentDictionary = MovementBinds;
@@ -57,10 +63,10 @@ public class KeyBindManager : MonoBehaviour
         {
             currentDictionary = ActionBinds;
         }
-        if (!currentDictionary.ContainsValue(keyBind))
+        if (!currentDictionary.ContainsKey(key))
         {
             currentDictionary.Add(key, keyBind);
-            KeyBindManager.MyInstance.UpdateKeyText(key,keyBind);
+            KeyBindManager.MyInstance.UpdateKeyText(key, keyBind);
         }
         else if (currentDictionary.ContainsValue(keyBind))
         {
@@ -69,12 +75,28 @@ public class KeyBindManager : MonoBehaviour
             KeyBindManager.MyInstance.UpdateKeyText(key, KeyCode.None);
         }
         currentDictionary[key] = keyBind;
-        KeyBindManager.MyInstance.UpdateKeyText(key,keyBind);
+        KeyBindManager.MyInstance.UpdateKeyText(key, keyBind);
         bindName = string.Empty;
+        //Debug.Log(keyBind);
+    }
+    public void KeyBindOnClick(string bindName)
+    {
+        this.bindName = bindName;
+    }
+    private void OnGUI()
+    {
+        if (bindName != string.Empty)
+        {
+            Event e = Event.current;
+            if (e.isKey)
+            {
+                BindKey(bindName, e.keyCode);
+            }
+        }
     }
     public void UpdateKeyText(string key, KeyCode code)
     {
-        Text tmp = Array.Find(keybindButtons, x=> x.name == key).GetComponentInChildren<Text>();
+        Text tmp = Array.Find(keybindButtons, x => x.name == key).GetComponentInChildren<Text>();
         tmp.text = code.ToString();
     }
 }

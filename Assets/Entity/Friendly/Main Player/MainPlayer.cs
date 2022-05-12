@@ -28,7 +28,7 @@ public class MainPlayer : Entity
     void Update()
     {
         // if tab is pressed toggle inventory GameObject visibility
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("OpenInventory"))))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             // get child of inventoryUI GameObject nad call Inventory.UpdateContent()
@@ -39,7 +39,7 @@ public class MainPlayer : Entity
         if (Time.timeScale == 0) return;
 
         // if e is pressed call function called use()
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Interact"))))
         {
             Use();
         }

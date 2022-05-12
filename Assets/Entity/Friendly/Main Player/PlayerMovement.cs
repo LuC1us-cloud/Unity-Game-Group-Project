@@ -34,35 +34,36 @@ public class PlayerMovement : MonoBehaviour
     // float SpecialAbilityDuration = 4f;
     private void Start()
     {
-        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveLeft"]));
-        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveRight"]));
-        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveUp"]));
-        Debug.Log(Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveDown"]));
+        Debug.Log(PlayerPrefs.GetString("MoveLeft"));
+        Debug.Log(PlayerPrefs.GetString("MoveRight"));
+        Debug.Log(PlayerPrefs.GetString("MoveDown"));
+        Debug.Log(PlayerPrefs.GetString("MoveUp"));
+        Debug.Log(PlayerPrefs.GetString("ActivatePower"));
 
     }
     private void FixedUpdate()
     {
 
-        // if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveLeft"]))
-        // {
-        //     movement.x = -1;
-        // }
-        // else if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveRight"]))
-        // {
-        //     movement.x = 1;
-        // }
-        // else { movement.x = 0; }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        // if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveDown"]))
-        // {
-        //     movement.y = -1;
-        // }
-        // else if (Input.GetKey(KeyBindManager.MyInstance.MovementBinds["MoveUp"]))
-        // {
-        //     movement.y = 1;
-        // }
-        // else { movement.y = 0; }
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("MoveLeft"))))
+        {
+            movement.x = -1;
+        }
+        else if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("MoveRight"))))
+        {
+            movement.x = 1;
+        }
+        else { movement.x = 0; }
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("MoveDown"))))
+        {
+            movement.y = -1;
+        }
+        else if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("MoveUp"))))
+        {
+            movement.y = 1;
+        }
+        else { movement.y = 0; }
+        //movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -76,19 +77,19 @@ public class PlayerMovement : MonoBehaviour
     {
         // Temporary for testing purposes
         // if 'r' is clicked, cycle through special abilities
-        if (Input.GetKeyDown(KeyBindManager.MyInstance.ActionBinds["RotatePower"]))
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RotatePower"))))
         {
             specialAbility = (SpecialAbility)(((int)specialAbility + 1) % System.Enum.GetValues(typeof(SpecialAbility)).Length);
         }
 
         //-------------------------------
 
-        if (shiftClickedOnce && Input.GetKeyDown(KeyCode.LeftShift) && !shiftClickedTwice && 0 < shiftClickInterval)
+        if (shiftClickedOnce && Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ActivatePower"))) && !shiftClickedTwice && 0 < shiftClickInterval)
         {
             shiftClickedTwice = true;
             shiftClickInterval = 0.5f;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ActivatePower"))))
         {
             shiftClickedOnce = true;
         }

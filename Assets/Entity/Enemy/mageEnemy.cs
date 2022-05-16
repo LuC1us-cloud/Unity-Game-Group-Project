@@ -4,81 +4,175 @@ using UnityEngine;
 
 public class mageEnemy : MonoBehaviour
 {
-    public float speed;
+    public bool isElite = false;
 
-    public GameObject damageText;
     private Rigidbody2D rb;
+    public float speed = 10;
 
-    public int CurrentHealth = 100;
-    public int MaxHealth = 100;
-    public int Armor = 10;
-    public float detectionRadius = 10;
-    public float stoppingDistance;
-    public float retreaDistance;
-    
-    private float timeBtwShots;
-    public float startTimeBtwShots;
-
-    private Transform player;
     public GameObject projectile;
 
-    private Collider2D[] colliders;
+    public Transform target;
+
+    private GameObject projectileTemp;
+
+    Vector2[] path;
+    int targetIndex;
+
+    public Transform[] patrolPoints;
+
+    public Transform safeSpot;
+
     // Start is called before the first frame update
     void Start()
     {
-        timeBtwShots = startTimeBtwShots;
         rb = this.GetComponent<Rigidbody2D>();
+        StartCoroutine(RefreshPath());
     }
 
     // Update is called once per frame
     void Update()
     {
-        colliders = Physics2D.OverlapCircleAll (transform.position, detectionRadius);
-        foreach(Collider2D collider in colliders){
-            if(collider.gameObject.tag == "Player"){
-                player = collider.transform;
+        // colliders = Physics2D.OverlapCircleAll (transform.position, detectionRadius);
+        // foreach(Collider2D collider in colliders){
+        //     if(collider.gameObject.tag == "Player"){
+        //         player = collider.transform;
 
-                LookAtPlayer(player);
+        //         LookAtPlayer(player);
 
-                if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-                } 
-                else if (Vector2.Distance(transform.position, player.position) > retreaDistance)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-                }
+        //         if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        //         {
+        //             target = player;
+        //         } 
+        //         else if (Vector2.Distance(transform.position, player.position) > retreaDistance)
+        //         {
+        //             target = transform;
+        //             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        //         }
 
-                if(timeBtwShots <= 0){
-                    Instantiate(projectile, transform.position, Quaternion.identity);
-                    timeBtwShots = startTimeBtwShots;
-                }
-                else
-                {
-                    timeBtwShots -= Time.deltaTime;
-                }
-            }
-        }
+        //         if(timeBtwShots <= 0){
+        //             projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+        //             projectileTemp.GetComponent<fireBall>().target = player.position;
+        //             projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+        //             projectileTemp.GetComponent<fireBall>().target.x = player.position.x;
+        //             projectileTemp.GetComponent<fireBall>().target.y = player.position.y + 2;
+        //             projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+        //             projectileTemp.GetComponent<fireBall>().target.x = player.position.x;
+        //             projectileTemp.GetComponent<fireBall>().target.y = player.position.y - 2;
+        //             timeBtwShots = startTimeBtwShots;
+        //         }
+        //         else
+        //         {
+        //             timeBtwShots -= Time.deltaTime;
+        //         }
+        //     }
+        // }
 
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }        
     }
 
-    public void TakeDamage(int damage)
+    public void Move(Transform moveTarget)
     {
-        // damage can't be less than 1
-        int damageToTake = Mathf.Max(1, damage - Armor);
-        CurrentHealth -= damageToTake;
-        DamageIndicator damageIndicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
-        damageIndicator.SetDamageText(damageToTake);
+        target = moveTarget;
     }
 
-    private void LookAtPlayer(Transform player){
+    public void Fire(Transform target)
+    {
+        if (isElite)
+        {
+            projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectileTemp.GetComponent<fireBall>().target = target.position;
+            projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectileTemp.GetComponent<fireBall>().target.x = target.position.x;
+            projectileTemp.GetComponent<fireBall>().target.y = target.position.y + 2;
+            projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectileTemp.GetComponent<fireBall>().target.x = target.position.x;
+            projectileTemp.GetComponent<fireBall>().target.y = target.position.y - 2;
+        }
+        else
+        {
+            projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectileTemp.GetComponent<fireBall>().target = target.position;
+        }
+    }
+
+    private void LookAtTarget(Transform player)
+    {
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         direction.Normalize();
     }
+
+    public void LookAtTarget(Vector3 target){
+        Vector3 direction = target - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rb.rotation = angle + 90;
+        direction.Normalize();
+    }
+
+    IEnumerator RefreshPath()
+    {
+        Vector2 targetPositionOld = (Vector2)target.position + Vector2.up; // ensure != to target.position initially
+
+        while (true)
+        {
+            if (targetPositionOld != (Vector2)target.position)
+            {
+                targetPositionOld = (Vector2)target.position;
+
+                path = Pathfinding.RequestPath(transform.position, target.position);
+                StopCoroutine("FollowPath");
+                StartCoroutine("FollowPath");
+            }
+
+            yield return new WaitForSeconds(.25f);
+        }
+    }
+
+    IEnumerator FollowPath()
+    {
+        if (path.Length > 0)
+        {
+            targetIndex = 0;
+            Vector2 currentWaypoint = path[0];
+
+            while (true)
+            {
+                if ((Vector2)transform.position == currentWaypoint)
+                {
+                    targetIndex++;
+                    if (targetIndex >= path.Length)
+                    {
+                        yield break;
+                    }
+                    currentWaypoint = path[targetIndex];
+                }
+                LookAtTarget(currentWaypoint);
+                transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+                yield return null;
+
+            }
+        }
+    }
+
+    public void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            for (int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                //Gizmos.DrawCube((Vector3)path[i], Vector3.one *.5f);
+
+                if (i == targetIndex)
+                {
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+                else
+                {
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+                }
+            }
+        }
+    }
+
 }

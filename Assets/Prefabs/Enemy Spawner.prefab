@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a52a88021a9e4880d2aebb84b6e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 6417817438860893922, guid: 2b44db8534001c3439cd0849049c3279, type: 3}
   waves:
   - name: Wave 1
     enemies:
@@ -280,6 +281,8 @@ MonoBehaviour:
       spawnPoint: {fileID: 3275629984460869422}
     rate: 1
   timeBetweenWaves: 5
+  points: []
+  safeSpot: {fileID: 0}
 --- !u!1 &3275629985401311370
 GameObject:
   m_ObjectHideFlags: 0

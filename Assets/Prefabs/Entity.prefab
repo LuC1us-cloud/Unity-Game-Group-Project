@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1854608027749048302}
   - component: {fileID: 1854608027749048305}
   - component: {fileID: -4389418930276936060}
-  - component: {fileID: -7637123626479847045}
+  - component: {fileID: 400333644257440104}
+  - component: {fileID: -5502522301988222737}
   m_Layer: 6
   m_Name: Entity
   m_TagString: Enemy
@@ -103,8 +104,8 @@ MonoBehaviour:
   damageText: {fileID: 2546655912905155981, guid: d1d7be29d82fa3345943910f8a6054f7, type: 3}
   speed: 3
   damageInterval: 1
-  CurrentHealth: 100
-  MaxHealth: 100
+  CurrentHealth: 200
+  MaxHealth: 200
   Damage: 10
   Armor: 0
   PassiveHealingInterval: 5
@@ -148,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7637123626479847045
+--- !u!114 &400333644257440104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,9 +158,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1854608027749048301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ce5c4c1cf035445b740952ba393b3d, type: 3}
+  m_Script: {fileID: 11500000, guid: c3b84d4453f3e584eb2ab2a4651c6ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1854608027749048304}
   speed: 3
   detectionRadius: 10
+  patrolPoints: []
+  safeSpot: {fileID: 0}
+--- !u!114 &-5502522301988222737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854608027749048301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d000d0d2d979c41a29ac7df10ce60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 11400000, guid: 3ce34aa9867d2124a90483d5ab974c8a, type: 2}
+  unitController: {fileID: 0}
+  stats: {fileID: 0}

@@ -5,8 +5,7 @@ using UnityEngine;
 public enum DoorType { Other, EntryDoor, ExitDoor }
 public class RoomDoor : Interactable
 {
-    [SerializeField]
-    Transform nextPosition;
+    private Transform nextPosition;
     public DoorType doorType;
     public string id;
     public string targetDoorId;
@@ -16,6 +15,22 @@ public class RoomDoor : Interactable
     {
         // Get mainplayer gameobject
         player = GameObject.FindGameObjectWithTag("Player");
+        // find all gameobjects with script RoomDoor
+        RoomDoor[] doors = FindObjectsOfType<RoomDoor>();
+        // find the door with the same id as targetDoorId
+        RoomDoor targetDoor = null;
+        foreach (RoomDoor door in doors)
+        {
+            if (door.id == this.id || door.doorType == DoorType.Other) continue;
+            
+            if (door.id == targetDoorId)
+            {
+                targetDoor = door;
+                break;
+            }
+        }
+        // set nextPosition to the target door's transform
+        nextPosition = targetDoor.transform;
     }
 
     public override void Interact()

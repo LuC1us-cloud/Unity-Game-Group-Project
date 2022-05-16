@@ -22,10 +22,6 @@ public class Rocket : Projectile
                 {
                     enemy.gameObject.GetComponent<Entity>().TakeDamage(damage);
                 }
-                if (enemy.gameObject.tag == "MageEnemy")
-                {
-                    enemy.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);
-                }
             }
             
             Destroy(gameObject);
@@ -40,10 +36,6 @@ public class Rocket : Projectile
             if (enemy.gameObject.tag == "Enemy")
             {
                 enemy.gameObject.GetComponent<Entity>().TakeDamage(damage);
-            }
-            if (enemy.gameObject.tag == "MageEnemy")
-            {
-                enemy.gameObject.GetComponent<mageEnemy>().TakeDamage(damage);
             }
         }
         

@@ -39,9 +39,6 @@ public class MeleeWeapon : Item
                 other.gameObject.GetComponent<Entity>().TakeDamage(Random.Range(minDamage, maxDamage));
                 Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
                 break;
-            case "MageEnemy":
-                other.gameObject.GetComponent<mageEnemy>().TakeDamage(Random.Range(minDamage, maxDamage));
-                break;
             default:
                 break;
         }

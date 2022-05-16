@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e83886833a32f4db779fadccb0f0ac, type: 3}
+  m_Name: MagePatrolAIState
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: bd7e47a24abd2454694dded35d7c0880, type: 2}
+  - {fileID: 11400000, guid: 2b26ef322c55d4c48ab0ee41e2ba0d3b, type: 2}

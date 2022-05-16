@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07fab834c16c594387e39e081a52bfc, type: 3}
+  m_Name: SplitPatrolAIState
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 5b3ef41b40953314fada6f3a3c1949a2, type: 2}
+  - {fileID: 11400000, guid: 0bcb89c5989cb7a45a44ad2cf59efce7, type: 2}

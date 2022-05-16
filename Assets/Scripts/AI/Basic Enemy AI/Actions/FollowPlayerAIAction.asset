@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e134526d4b88ca4c9da683c85cd54b5, type: 3}
+  m_Name: FollowPlayerAIAction
+  m_EditorClassIdentifier: 
+  followDistance: 10
+  playerMissingState: {fileID: 11400000, guid: 3ce34aa9867d2124a90483d5ab974c8a, type: 2}
+  lowHealthState: {fileID: 11400000, guid: 8e025a8e7d38a924e9573de441e74c10, type: 2}

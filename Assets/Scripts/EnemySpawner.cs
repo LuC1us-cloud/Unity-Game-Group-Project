@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 { 
+    public Transform shield;
     public enum SpawnState {SPAWNING, WAITING, COUNTING};
 
     [System.Serializable]
@@ -29,9 +30,17 @@ public class EnemySpawner : MonoBehaviour
     private SpawnState state = SpawnState.COUNTING;
     private float searchCountdown = 1f;
 
+    public Transform[] points;
+
+    public Transform safeSpot;
+
     private void Start() 
     {
-        
+        points = new Transform[this.transform.childCount - 1];
+        for (int i = 1; i < this.transform.childCount; i++)
+        {
+            points[i-1] = transform.GetChild(i).transform;
+        }
         waveCountdown = timeBetweenWaves;
 
     }
@@ -107,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < _wave.enemies.Length; i++)
         {
-            SpawnEnemy(_wave.enemies[i]);
+            SpawnEnemy(_wave.enemies[i], shield);
             yield return new WaitForSeconds(1f/_wave.rate);
         }
 
@@ -117,11 +126,35 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    //scrip for insanciating the enemy object
-    void SpawnEnemy(Enemy _enemy)
+    //scrip for instantiating the enemy object
+    void SpawnEnemy(Enemy _enemy, Transform shield)
     {
         Debug.Log("Spawning Enemy: " + _enemy.enemy.name);
-        Instantiate(_enemy.enemy, _enemy.spawnPoint.position, _enemy.spawnPoint.rotation);
+        if (_enemy.enemy.name == "EliteMageEnemy")
+        {
+            Transform elite = Instantiate(_enemy.enemy, _enemy.spawnPoint.position, _enemy.spawnPoint.rotation);
+            elite.GetComponent<mageEnemy>().patrolPoints = points;
+            elite.GetComponent<mageEnemy>().safeSpot = safeSpot;
+            Debug.Log("Spawning Enemy: " + _enemy.enemy.name);
+            Transform tempShield = Instantiate(shield, _enemy.spawnPoint.position, _enemy.spawnPoint.rotation);
+            tempShield.GetComponent<Shield>().Host = elite;
+            return;
+        }
+        Transform temp = Instantiate(_enemy.enemy, _enemy.spawnPoint.position, _enemy.spawnPoint.rotation);
+        if (_enemy.enemy.name == "Entity" || _enemy.enemy.name == "SplitEnemy")
+        {
+            temp.GetComponent<Unit>().patrolPoints = points;
+            temp.GetComponent<Unit>().safeSpot = safeSpot;
+        }
+        if (_enemy.enemy.name == "MageEnemy")
+        {
+            temp.GetComponent<mageEnemy>().patrolPoints = points;
+            temp.GetComponent<mageEnemy>().safeSpot = safeSpot;
+        }
+        if (_enemy.enemy.name == "DashEnemy")
+        {
+            temp.GetComponent<DashEnemy>().patrolPoints = points;
+        }
     }
 
 }

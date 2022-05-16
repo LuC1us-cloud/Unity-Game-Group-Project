@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ee8860d39e20b4f9057b09bd4d6ec6, type: 3}
+  m_Name: SplitFollowPlayerAIAction
+  m_EditorClassIdentifier: 
+  followDistance: 10
+  playerMissingState: {fileID: 11400000, guid: 694f995ee43ae4243b7b6507004e5631, type: 2}
+  lowHealthState: {fileID: 11400000, guid: 772094d7364903a4ca8668e11a00429f, type: 2}

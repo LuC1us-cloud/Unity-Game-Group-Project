@@ -9,14 +9,29 @@ public class DoorMovement : MonoBehaviour
     public float speed = 1.0f;
     public float distance = 1.0f;
     public GameObject button;
-
+    public enum Side { up, down, left, right };
+    public Side side;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
 
     void Start()
     {
         initialPosition = transform.position;
-        targetPosition = initialPosition + Vector3.up * distance;
+        switch (side)
+        {
+            case Side.up:
+                targetPosition = initialPosition + Vector3.up * distance;
+                break;
+            case Side.down:
+                targetPosition = initialPosition + Vector3.down * distance;
+                break;
+            case Side.left:
+                targetPosition = initialPosition + Vector3.left * distance;
+                break;
+            case Side.right:
+                targetPosition = initialPosition + Vector3.right * distance;
+                break;
+        }
     }
 
     void Update()

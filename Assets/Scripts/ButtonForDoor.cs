@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : Interactable
+public class ButtonForDoor : Interactable
 {
     // create a timer
     public float timer = 0.0f;

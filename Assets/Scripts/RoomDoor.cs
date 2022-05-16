@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DoorType { Other, EntryDoor, ExitDoor }
 public class RoomDoor : Interactable
 {
     [SerializeField]
     Transform nextPosition;
+    public DoorType doorType;
+    public string id;
+    public string targetDoorId;
     GameObject player;
     // Start is called before the first frame update
     void Start()

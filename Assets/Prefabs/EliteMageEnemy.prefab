@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3167739331457495899}
   - component: {fileID: 5275656315451470828}
   - component: {fileID: 4830126279960737029}
+  - component: {fileID: 8017767873575948886}
   m_Layer: 6
   m_Name: EliteMageEnemy
   m_TagString: Enemy
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3167739331457495901
 SpriteRenderer:
@@ -78,10 +79,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.25, g: 0.27248657, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1d521c46ffddd09479a3103fd40b2e32, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 0.8828125}
   m_AdaptiveModeThreshold: 0.5
@@ -104,7 +105,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.64
 --- !u!50 &3167739331457495902
 Rigidbody2D:
   serializedVersion: 4
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 1
+  animator: {fileID: 8017767873575948886}
   speed: 3
   projectile: {fileID: 2864909886633717992, guid: 3ad077b094ee1014897f706dba6e5ef7, type: 3}
   target: {fileID: 3167739331457495900}
@@ -182,3 +184,23 @@ MonoBehaviour:
   PassiveHealingAmount: 10
   isInvincible: 0
   isStunned: 0
+--- !u!95 &8017767873575948886
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167739331457495896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6b985e9e2e9a4144adad8c3159b4699, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

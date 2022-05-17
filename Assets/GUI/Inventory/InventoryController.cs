@@ -21,7 +21,6 @@ public class InventoryController : MonoBehaviour
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.gameObject.name);
             }
         }
     }

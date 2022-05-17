@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
-{ 
+{
     public Transform shield;
-    public enum SpawnState {SPAWNING, WAITING, COUNTING};
+    public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     [System.Serializable]
-    public class Wave 
+    public class Wave
     {
         public string name;
         public Enemy[] enemies;
@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     [System.Serializable]
-    public class Enemy 
+    public class Enemy
     {
         public Transform enemy;
         public Transform spawnPoint;
@@ -34,18 +34,18 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform safeSpot;
 
-    private void Start() 
+    private void Start()
     {
         points = new Transform[this.transform.childCount - 1];
         for (int i = 1; i < this.transform.childCount; i++)
         {
-            points[i-1] = transform.GetChild(i).transform;
+            points[i - 1] = transform.GetChild(i).transform;
         }
         waveCountdown = timeBetweenWaves;
 
     }
 
-    private void Update() 
+    private void Update()
     {
         if (state == SpawnState.WAITING)
         {
@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
                 return;
             }
         }
-        
+
         if (waveCountdown <= 0)
         {
             if (state != SpawnState.SPAWNING)
@@ -80,15 +80,15 @@ public class EnemySpawner : MonoBehaviour
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
-         if (nextWave + 1 > waves.Length - 1)
-         {
-             Debug.Log("Completed all waves!");
-             this.gameObject.SetActive(false);  
-         }
-         else
-         {
+        if (nextWave + 1 > waves.Length - 1)
+        {
+            Debug.Log("Completed all waves!");
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
             nextWave++;
-         }
+        }
     }
 
     // script for checking if there are enemies left before spawning the next wave
@@ -96,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
     {
         searchCountdown -= Time.deltaTime;
         if (searchCountdown <= 0)
-        { 
+        {
             searchCountdown = 1f;
             //the checking function can and should be changed for something suitable
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
@@ -107,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
         }
         return true;
     }
-    
+
     // coroutine for spawning enemies in fixed time intervals
     IEnumerator SpawnWave(Wave _wave)
     {
@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _wave.enemies.Length; i++)
         {
             SpawnEnemy(_wave.enemies[i], shield);
-            yield return new WaitForSeconds(1f/_wave.rate);
+            yield return new WaitForSeconds(1f / _wave.rate);
         }
 
         state = SpawnState.WAITING;

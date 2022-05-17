@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8463921664856981240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8463921664856981238}
+  - component: {fileID: 8463921664856981239}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8463921664856981238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463921664856981240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.218267, y: -13.662012, z: -3.653304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8463921664856981239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463921664856981240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287f593713c43c47a27448f57e4867b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingRooms: []
+  puzzleRooms:
+  - {fileID: 3208330265472537220, guid: c66ee601a4250d14a8fdbef91013e7c2, type: 3}
+  - {fileID: 7559100573264914291, guid: 2e5f137f1f897234283a108513d3c651, type: 3}
+  - {fileID: 729364005085966566, guid: 4bc49d1c54f73484da2936c6173233b8, type: 3}
+  - {fileID: 3735805856959932377, guid: e796e80b658226a46bb427beaaa09735, type: 3}
+  - {fileID: 2484155339268459658, guid: 7d0ca82b7d904c249982be93a04acb32, type: 3}
+  - {fileID: 1745239603835645734, guid: 6432b515fe0871d4f9f3829017059ed4, type: 3}
+  - {fileID: 4796228193880124042, guid: 89c9ef00c8fadb9418793a41dad7e6ee, type: 3}
+  - {fileID: 5522077722207034315, guid: 2e5b5bf4182858a48a86dbcaa19d1622, type: 3}
+  - {fileID: 8374801763147921954, guid: 9ce68f17db92f27458258fb8c0c97b26, type: 3}
+  - {fileID: 4971514261217586418, guid: f2e97811703a0a741aa4fa11ec776a43, type: 3}
+  enemyRooms:
+  - {fileID: 926543424514801294, guid: b25b6be2542a97f4abe6d4426a72a830, type: 3}
+  - {fileID: 4606389836526888155, guid: 30dc444faf021224fb860cdab190d105, type: 3}
+  - {fileID: 3744633982706129906, guid: fda6729375c2e2a4fa327e4e25fc6c5c, type: 3}
+  - {fileID: 3689360516995542112, guid: ad979918610e22b4a910dbf98b0a9ea7, type: 3}
+  - {fileID: 872155207793482790, guid: 6dcd3067ce400e54f9113b8eddf52308, type: 3}
+  - {fileID: 3953256607546080361, guid: 288d7fef1eb9f6046b697514f60eadfa, type: 3}
+  - {fileID: 880584417836842914, guid: b44625301b62ae047a04b0c759ce92d3, type: 3}
+  - {fileID: 4379349570853957016, guid: bbc7a1552b9560f429013880f23b76f4, type: 3}
+  - {fileID: 8464942586207055009, guid: 37f83696e5ff2b34aad17809b280858f, type: 3}
+  - {fileID: 480183779996074770, guid: b5a3c79864f53ca4dac6ee9382bbf412, type: 3}
+  bossRooms: []
+  maxRooms: 10
+  puzzleRoomBias: 0

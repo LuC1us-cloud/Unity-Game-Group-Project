@@ -5,7 +5,7 @@ using UnityEngine;
 public class LockedDoor : MonoBehaviour
 {
     private int count;  // Number of pressure plates with blocks on them
-    public int numberOfPlates = 1;
+    public int numberOfPlates = 2;
 
     private void Awake()
     {
@@ -20,5 +20,10 @@ public class LockedDoor : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Reset()
+    {
+        count = 0;
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1745072820676698264}
   - component: {fileID: -362740804930314193}
   - component: {fileID: -1096166785523669306}
+  - component: {fileID: 5805425017633268512}
   m_Layer: 6
   m_Name: MageEnemy
   m_TagString: Enemy
@@ -78,10 +79,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.25, g: 0.27248657, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 52b56e875af814a44913bf13ceec60d0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 0.8828125}
   m_AdaptiveModeThreshold: 0.5
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 0
+  animator: {fileID: 5805425017633268512}
   speed: 3
   projectile: {fileID: 2864909886633717992, guid: 3ad077b094ee1014897f706dba6e5ef7, type: 3}
   target: {fileID: 1745072820676698271}
@@ -182,3 +184,23 @@ MonoBehaviour:
   PassiveHealingAmount: 10
   isInvincible: 0
   isStunned: 0
+--- !u!95 &5805425017633268512
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745072820676698267}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebb26355b89ca6a4bb92145c17960191, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

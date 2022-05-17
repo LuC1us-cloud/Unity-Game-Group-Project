@@ -10,6 +10,8 @@ public class DashAIController : MonoBehaviour
     private DashAIState currentAIState;
     private MainPlayer player;
 
+    public Animator animator;
+
     private DashAIState CurrentAIState
     {
         get

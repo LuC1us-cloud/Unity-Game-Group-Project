@@ -55,13 +55,22 @@ public class MageFollowPlayerAIAction : MageAIAction
             return;
         }
 
-        if (distance > stoppingDistance)
+        if (distance > followDistance)
         {
-            controller.Target = controller.transform;
+            controller.Target = controller.mageController.patrolPoints[Random.Range(0, controller.mageController.patrolPoints.Length)];
+            controller.ChangeState(playerMissingState);
+            return;
         }
-        else if (distance > retreatDistance)
+
+        if (distance < stoppingDistance && distance > retreatDistance)
         {
             controller.Target = controller.transform;
+            controller.mageController.LookAtTarget(player.transform.position);
+        }
+        else if (distance < retreatDistance)
+        {
+            controller.Target = controller.transform;
+            controller.mageController.LookAtTarget(player.transform.position);
             controller.transform.position = Vector2.MoveTowards(controller.transform.position, player.transform.position, -(controller.mageController.speed) * Time.deltaTime);
         }
         else controller.Target = player.transform;

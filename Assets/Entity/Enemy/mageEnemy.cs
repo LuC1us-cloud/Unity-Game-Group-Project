@@ -6,6 +6,8 @@ public class mageEnemy : MonoBehaviour
 {
     public bool isElite = false;
 
+    public Animator animator;
+
     private Rigidbody2D rb;
     public float speed = 10;
 
@@ -76,6 +78,7 @@ public class mageEnemy : MonoBehaviour
 
     public void Fire(Transform target)
     {
+        animator.SetTrigger("Attack");
         if (isElite)
         {
             projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -89,9 +92,12 @@ public class mageEnemy : MonoBehaviour
         }
         else
         {
+
             projectileTemp = Instantiate(projectile, transform.position, Quaternion.identity);
             projectileTemp.GetComponent<fireBall>().target = target.position;
+
         }
+        //animator.SetBool("Attacking", false);
     }
 
     private void LookAtTarget(Transform player)
@@ -102,7 +108,8 @@ public class mageEnemy : MonoBehaviour
         direction.Normalize();
     }
 
-    public void LookAtTarget(Vector3 target){
+    public void LookAtTarget(Vector3 target)
+    {
         Vector3 direction = target - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle + 90;

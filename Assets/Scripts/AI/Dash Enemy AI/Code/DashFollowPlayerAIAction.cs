@@ -72,6 +72,7 @@ public class DashFollowPlayerAIAction : DashAIAction
         {
             controller.Target = controller.transform;
             isDashing = true;
+
         }
         //set the point to dash to, so it doesnt heat seek the player
         if (waitTime >= setWaitTime - 0.2) dashTarget = player.transform.position;
@@ -84,6 +85,7 @@ public class DashFollowPlayerAIAction : DashAIAction
         //after waiting a bit dash
         if (dashTime >= 0 && waitTime <= 0)
         {
+            controller.animator.SetTrigger("Start_Charge");
             controller.stats.Damage = controller.dashDamage;
             float step = dashSpeed * Time.deltaTime;
             controller.transform.position = Vector2.MoveTowards(controller.transform.position, dashTarget, step);
@@ -98,10 +100,11 @@ public class DashFollowPlayerAIAction : DashAIAction
             waitTime = setWaitTime;
         }
         //if not dashing, decrease the dashes cooldown
-        if(dashCooldown >= 0)
+        if (dashCooldown >= 0)
         {
             controller.stats.Damage = controller.originalDamage;
             dashCooldown -= Time.deltaTime;
+            controller.animator.SetTrigger("Stop_Charge");
         }
 
 

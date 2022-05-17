@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Reset : MonoBehaviour
 {
+    public GameObject topRight;
+    public GameObject bottomLeft;
     List<Vector3> positions;
     List<GameObject> boxes;
     List<PressurePlate> plates;
@@ -11,37 +13,44 @@ public class Reset : MonoBehaviour
     
     void Start()
     {
-        var player = FindObjectOfType<MainPlayer>();
-        Vector3 position = player.transform.position;
         var allBoxes = GameObject.FindGameObjectsWithTag("Movable");
         var allDoors = FindObjectsOfType<LockedDoor>();
         var allPlates = FindObjectsOfType<PressurePlate>();
+
         positions = new List<Vector3>();
         boxes = new List<GameObject>();
         plates = new List<PressurePlate>();
         doors = new List<LockedDoor>();
+
+        var tprx = topRight.transform.position.x;
+        var tpry = topRight.transform.position.y;
+        var btlx = bottomLeft.transform.position.x;
+        var btly = bottomLeft.transform.position.y;
         foreach (GameObject box in allBoxes)
         {
-            float dist = (box.transform.position - position).sqrMagnitude;
-         Debug.Log(dist);
-            if (dist < 150)
+            var x = box.transform.position.x;
+            var y = box.transform.position.y;
+            if (x <= tprx && x >= btlx && y <= tpry && y >= btly)
             {
+                Debug.Log(box.transform.position);
                 positions.Add(box.transform.position);
                 boxes.Add(box);
             }
         }
         foreach (LockedDoor door in allDoors)
         {
-            float dist = (door.transform.position - position).sqrMagnitude;
-            if (dist < 150)
+            var x = door.transform.position.x;
+            var y = door.transform.position.y;
+            if (x <= tprx && x >= btlx && y <= tpry && y >= btly)
             {
                 doors.Add(door);
             }
         }
         foreach (PressurePlate plate in allPlates)
         {
-            float dist = (plate.transform.position - position).sqrMagnitude;
-            if (dist < 150)
+            var x = plate.transform.position.x;
+            var y = plate.transform.position.y;
+            if (x <= tprx && x >= btlx && y <= tpry && y >= btly)
             {
                 plates.Add(plate);
             }

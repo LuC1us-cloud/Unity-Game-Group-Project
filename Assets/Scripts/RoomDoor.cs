@@ -21,7 +21,7 @@ public class RoomDoor : Interactable
         RoomDoor targetDoor = null;
         foreach (RoomDoor door in doors)
         {
-            if (door.id == this.id || door.doorType == DoorType.Other) continue;
+            if (door.id == this.id) continue;
             
             if (door.id == targetDoorId)
             {

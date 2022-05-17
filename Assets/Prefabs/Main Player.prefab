@@ -82,8 +82,6 @@ MonoBehaviour:
   Ff_DamagePrefab: {fileID: 0}
   GravityOrbPrefab: {fileID: 0}
   moveSpeed: 5
-  rb: {fileID: 5413343511567234060}
-  cam: {fileID: 0}
   specialAbility: 0
   dashDistance: 20
 --- !u!212 &5413343511567234062
@@ -127,8 +125,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.64253193, g: 0.7264151, b: 0.60648805, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b15f345669c30a741a934880d318630b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,7 +135,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &5413343511567234060
 Rigidbody2D:
   serializedVersion: 4
@@ -248,7 +246,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.6392157, g: 0.7254902, b: 0.60784316, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -256,7 +254,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5413343512480779518
@@ -332,7 +330,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.6392157, g: 0.7254902, b: 0.60784316, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -340,6 +338,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

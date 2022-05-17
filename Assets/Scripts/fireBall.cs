@@ -6,15 +6,12 @@ public class fireBall : MonoBehaviour
 {
     public float speed;
     public int Damage = 20;
-
-    private Transform player;
-    private Vector2 target;
+    public Vector2 target;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        
     }
 
     // Update is called once per frame
@@ -27,16 +24,12 @@ public class fireBall : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other){
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
             other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
             DestroyProjectile();
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Player"){
-            other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
+        if(other.gameObject.tag != "Player" && other.gameObject.layer != 6 && other.gameObject.layer != 3){
             DestroyProjectile();
         }
     }

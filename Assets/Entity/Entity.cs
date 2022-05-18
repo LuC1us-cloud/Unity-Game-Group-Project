@@ -6,7 +6,7 @@ public class Entity : MonoBehaviour
 {
     public GameObject damageText;
     public float speed = 3f;
-    public int damageInterval = 1; 
+    public int damageInterval = 1;
     public int CurrentHealth = 100;
     public int MaxHealth = 100;
     public int Damage = 5;
@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
         // if health reaches 0, destroy the object
         if (CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
 
         // if health is below max health, heal health every time interval
@@ -40,7 +40,8 @@ public class Entity : MonoBehaviour
                 timeSinceLastHeal = 0;
             }
         }
-        if(timeSinceLastDamge <= damageInterval){
+        if (timeSinceLastDamge <= damageInterval)
+        {
             timeSinceLastDamge += Time.deltaTime;
         }
     }
@@ -55,12 +56,16 @@ public class Entity : MonoBehaviour
         {
             hitPoint = transform.position;
         }
-        if(isInvincible) return;
+        if (isInvincible) return;
         // damage can't be less than 1
         int damageToTake = Mathf.Max(1, damage - Armor);
         CurrentHealth -= damageToTake;
         DamageIndicator damageIndicator = Instantiate(damageText, hitPoint, Quaternion.identity).GetComponent<DamageIndicator>();
         damageIndicator.SetDamageText(damageToTake);
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
     public void Heal(int heal)
@@ -74,7 +79,7 @@ public class Entity : MonoBehaviour
 
     public void MoveTo(Vector2 position)
     {
-        if(isStunned) return;
+        if (isStunned) return;
         // get rigidbody
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb == null) return;
@@ -82,8 +87,10 @@ public class Entity : MonoBehaviour
         rb.MovePosition(position);
     }
 
-    private void OnCollisionStay2D(Collision2D other) {        
-        if(other.gameObject.tag == "Player" && timeSinceLastDamge >= damageInterval){
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player" && timeSinceLastDamge >= damageInterval)
+        {
             other.gameObject.GetComponent<MainPlayer>().TakeDamage(Damage);
             timeSinceLastDamge = 0;
         }

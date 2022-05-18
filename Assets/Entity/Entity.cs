@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public GameObject deathAnim;
     public GameObject damageText;
     public float speed = 3f;
     public int damageInterval = 1;
@@ -66,6 +67,8 @@ public class Entity : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+        Instantiate(deathAnim, transform.position, Quaternion.identity);
+        Debug.Log(deathAnim.name);
     }
 
     public void Heal(int heal)

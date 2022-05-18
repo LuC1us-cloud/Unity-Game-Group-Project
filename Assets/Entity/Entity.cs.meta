@@ -4,6 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - deathAnim: {fileID: 6603325092417261482, guid: 2f4827acae62a9f4bbd6021816d43248, type: 3}
   - damageText: {fileID: 2546655912905155981, guid: d1d7be29d82fa3345943910f8a6054f7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

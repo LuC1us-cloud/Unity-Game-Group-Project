@@ -321,6 +321,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 22b1456e29e4d024a94e181d51c9b9e6, type: 3}
+--- !u!1001 &809721806
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3275629985038521792, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_Name
+      value: Enemy Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521793, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521793, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: waves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521793, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: waves.Array.data[0].rate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521793, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521793, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[0].enemy
+      value: 
+      objectReference: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.398122
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.683614
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275629985038521798, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9710f4e699c8ce4b8ab8be039488519, type: 3}
 --- !u!1 &976544323
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +621,14 @@ PrefabInstance:
     - target: {fileID: 1549858194944059801, guid: c3a8223c7b593194ea28ad78001afae6, type: 3}
       propertyPath: m_Name
       value: Tactical Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146275973289262550, guid: c3a8223c7b593194ea28ad78001afae6, type: 3}
+      propertyPath: maxDamage
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146275973289262550, guid: c3a8223c7b593194ea28ad78001afae6, type: 3}
+      propertyPath: minDamage
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

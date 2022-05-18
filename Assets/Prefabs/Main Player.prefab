@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a509bb14167e704c8e53e3f39cc15fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnim: {fileID: 6603325092417261482, guid: 2f4827acae62a9f4bbd6021816d43248, type: 3}
   damageText: {fileID: 0}
   speed: 3
   damageInterval: 1
@@ -63,8 +64,8 @@ MonoBehaviour:
   isStunned: 0
   inventory: []
   inventoryUI: {fileID: 0}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
+  leftHandSlot: {fileID: 0}
+  rightHandSlot: {fileID: 0}
 --- !u!114 &5413343511567234061
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3530,7 +3530,7 @@ GameObject:
   - component: {fileID: 9127406773412320749}
   - component: {fileID: 810142422334544967}
   m_Layer: 0
-  m_Name: FIRST BOSS ROOM 1
+  m_Name: Boss Room 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

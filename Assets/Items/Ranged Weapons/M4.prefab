@@ -178,8 +178,8 @@ MonoBehaviour:
   projectile: {fileID: 8272277826366540553, guid: 62733746f2324f2498222e45b778b82d, type: 3}
   firePoint:
   - {fileID: 5735537673244213964}
-  minDamage: 15
-  maxDamage: 18
+  minDamage: 30
+  maxDamage: 45
   attackSpeed: 5
   attackRange: 20
   projectileVelocity: 45

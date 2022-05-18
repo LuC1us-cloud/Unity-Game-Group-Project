@@ -30,14 +30,20 @@ public class LevelGenerator : MonoBehaviour
             maxRooms = puzzleRooms.Count + enemyRooms.Count;
         }
 
-        GameObject[] roomMatrix = new GameObject[maxRooms];
-        for (int i = 0; i < maxRooms; i++)
+        GameObject[] roomMatrix = new GameObject[maxRooms + 2];
+        int startingRoomNumber = Random.Range(0, startingRooms.Count);
+        roomMatrix[0] = startingRooms[startingRoomNumber];
+        var startingRoomReference = GameObject.Instantiate(roomMatrix[0], new Vector3(cursorPositionX, 0, -1), Quaternion.identity);
+        var startingRoomWidth = startingRoomReference.GetComponent<SpriteRenderer>().bounds.size.x;
+        cursorPositionX += startingRoomWidth * 2;
+        startingRoomReference.GetComponent<SpriteRenderer>().enabled = false;
+        for (int i = 1; i < roomMatrix.Length - 1; i++)
         {
             var currentRoom = GetRandomRoom();
             // spawn in that gameobject at the position of x=i, y=0
             // get that gameobject's Sprite renderer and set it's color to a random color
             // set the gameobject's tag to "Room"
-            var reference = GameObject.Instantiate(currentRoom, new Vector3(cursorPositionX, 0, 0), Quaternion.identity);
+            var reference = GameObject.Instantiate(currentRoom, new Vector3(cursorPositionX, 0, -1), Quaternion.identity);
             SetDoorConnections(reference);
             roomMatrix[i] = reference;
 

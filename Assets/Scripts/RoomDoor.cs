@@ -10,8 +10,7 @@ public class RoomDoor : Interactable
     public string id;
     public string targetDoorId;
     GameObject player;
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         // Get mainplayer gameobject
         player = GameObject.FindGameObjectWithTag("Player");
@@ -22,7 +21,7 @@ public class RoomDoor : Interactable
         foreach (RoomDoor door in doors)
         {
             if (door.id == this.id) continue;
-            
+
             if (door.id == targetDoorId)
             {
                 targetDoor = door;

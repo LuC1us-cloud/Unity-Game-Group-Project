@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossDamageAreaControler : MonoBehaviour
 {
-    public enum SpawnState { DAMAGE, WAITING, START};
+    public enum SpawnState { DAMAGE, WAITING, START };
 
     public Transform[] damageFields;
     private int nextField = 0;
@@ -31,7 +31,7 @@ public class BossDamageAreaControler : MonoBehaviour
     private void Update()
     {
         entity = boss.GetComponent<Entity>();
-        if(entity.CurrentHealth <= entity.MaxHealth / 2)
+        if (entity.CurrentHealth <= entity.MaxHealth / 2)
         {
             if (state == SpawnState.WAITING)
             {
@@ -52,7 +52,6 @@ public class BossDamageAreaControler : MonoBehaviour
     // coroutine for spawning enemies in fixed time intervals
     IEnumerator DamagePhase(int field)
     {
-        Debug.Log("Damage area " + damageFields[field].name + " " + field);
         state = SpawnState.DAMAGE;
 
         damageFields[field].gameObject.GetComponent<SpriteRenderer>().color = tranperentRed;

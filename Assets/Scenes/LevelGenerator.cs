@@ -67,6 +67,7 @@ public class LevelGenerator : MonoBehaviour
     {
         InitializePathfinding();
         InitializeAllDoors();
+        InitializeSpawners();
     }
     private void InitializePathfinding()
     {
@@ -78,9 +79,19 @@ public class LevelGenerator : MonoBehaviour
         var grid = pathfinder.GetComponent<Grid>();
         grid.gridWorldSize = new Vector2(cursorPositionX * 2, largestRoomY);
         grid.Initialize();
-        var pathfinding = pathfinder.GetComponent<Grid>();
+        var pathfinding = pathfinder.GetComponent<Pathfinding>();
         pathfinding.Initialize();
     }
+
+     private void InitializeSpawners()
+    {
+        var doors = GameObject.FindGameObjectsWithTag("Spawner");
+        foreach (var door in doors)
+        {
+            door.GetComponent<EnemySpawner>().Initialize();
+        }
+    }
+
     private void SetDoorConnections(GameObject room, bool isLast = false)
     {
         // get all the gameobjects with RoomDoor script on them

@@ -31,7 +31,6 @@ public class Unit : MonoBehaviour {
 		while (true) {
 			if (targetPositionOld != (Vector2)target.position) {
 				targetPositionOld = (Vector2)target.position;
-
 				path = Pathfinding.RequestPath (transform.position, target.position);
 				StopCoroutine ("FollowPath");
 				StartCoroutine ("FollowPath");

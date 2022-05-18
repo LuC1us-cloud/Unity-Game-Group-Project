@@ -17,6 +17,7 @@ public class SpawnTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             EnemySpawner.GetComponent<EnemySpawner>().enabled = true;
+            EnemySpawner.GetComponent<EnemySpawner>().Initialize(); 
             this.gameObject.SetActive(false);
         }
     }

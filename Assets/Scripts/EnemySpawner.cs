@@ -34,17 +34,6 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform safeSpot;
 
-    private void Start()
-    {
-        points = new Transform[this.transform.childCount - 1];
-        for (int i = 1; i < this.transform.childCount; i++)
-        {
-            points[i - 1] = transform.GetChild(i).transform;
-        }
-        waveCountdown = timeBetweenWaves;
-
-    }
-
     private void Update()
     {
         if (state == SpawnState.WAITING)
@@ -73,6 +62,16 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    public void Initialize()
+    {
+        points = new Transform[this.transform.childCount - 1];
+        for (int i = 1; i < this.transform.childCount; i++)
+        {
+            points[i - 1] = transform.GetChild(i).transform;
+        }
+        waveCountdown = timeBetweenWaves;
+    }
+
     //script for displaying or doing something after all waves have been completed
     void WaveCompleted()
     {
@@ -99,7 +98,7 @@ public class EnemySpawner : MonoBehaviour
         {
             searchCountdown = 1f;
             //the checking function can and should be changed for something suitable
-            if (GameObject.FindGameObjectWithTag("Enemy") == null)
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 1)
             {
                 return false;
             }

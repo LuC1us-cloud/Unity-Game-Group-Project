@@ -774,24 +774,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a52a88021a9e4880d2aebb84b6e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
+  shield: {fileID: 6417817438860893922, guid: 2b44db8534001c3439cd0849049c3279, type: 3}
   waves:
   - name: Wave 1
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 8248877189655322142}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 1869414778839239000}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 7155547915908646674}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 7349810054551036919}
     rate: 1
   - name: Wave 1
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
       spawnPoint: {fileID: 8248877189655322142}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1745072820676698271, guid: 824b55088c0534549aad0eb1222f61fd, type: 3}
       spawnPoint: {fileID: 1869414778839239000}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1745072820676698271, guid: 824b55088c0534549aad0eb1222f61fd, type: 3}
+      spawnPoint: {fileID: 7155547915908646674}
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
       spawnPoint: {fileID: 7155547915908646674}
     rate: 1
   timeBetweenWaves: 5

@@ -11346,28 +11346,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a52a88021a9e4880d2aebb84b6e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
+  shield: {fileID: 6417817438860893922, guid: 2b44db8534001c3439cd0849049c3279, type: 3}
   waves:
   - name: Wave 1
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 7894256106398426050}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 501857790405647919}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 2060176112779937689}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 6264504576712358515}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 5422285168887628951}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 4149296482035250867}
     rate: 1
   - name: Wave 2
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 7894256106398426050}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
       spawnPoint: {fileID: 2060176112779937689}
-    rate: 0.5
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
+      spawnPoint: {fileID: 501857790405647919}
+    rate: 1
   - name: Wave 3
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 501857790405647919}
+    - enemy: {fileID: 1017905619920534222, guid: e65557e0968285e438f562979079f071, type: 3}
+      spawnPoint: {fileID: 2060176112779937689}
+    - enemy: {fileID: 1017905619920534222, guid: e65557e0968285e438f562979079f071, type: 3}
+      spawnPoint: {fileID: 6264504576712358515}
+    - enemy: {fileID: 3167739331457495900, guid: 5127aa9c2fcc2e64790c399f049c2036, type: 3}
+      spawnPoint: {fileID: 5422285168887628951}
+    - enemy: {fileID: 3167739331457495900, guid: 5127aa9c2fcc2e64790c399f049c2036, type: 3}
+      spawnPoint: {fileID: 4149296482035250867}
     rate: 1
   timeBetweenWaves: 5
   points: []

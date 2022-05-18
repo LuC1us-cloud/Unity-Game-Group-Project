@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System;
 
 public class Pathfinding : MonoBehaviour
 {
 
-    Grid grid;
+    public Grid grid;
     static Pathfinding instance;
     public void Initialize()
     {
         grid = GetComponent<Grid>();
         instance = this;
+        Debug.Log(instance.name);
     }
 
     public static Vector2[] RequestPath(Vector2 from, Vector2 to)
@@ -23,8 +24,8 @@ public class Pathfinding : MonoBehaviour
     Vector2[] FindPath(Vector2 from, Vector2 to)
     {
 
-        Stopwatch sw = new Stopwatch();
-        sw.Start();
+        //Stopwatch sw = new Stopwatch();
+        //sw.Start();
 
         Vector2[] waypoints = new Vector2[0];
         bool pathSuccess = false;
@@ -56,7 +57,7 @@ public class Pathfinding : MonoBehaviour
 
                 if (currentNode == targetNode)
                 {
-                    sw.Stop();
+                    //sw.Stop();
                     //print ("Path found: " + sw.ElapsedMilliseconds + " ms");
                     pathSuccess = true;
                     break;

@@ -15,6 +15,8 @@ TagManager:
   - Movable
   - Enter
   - Exit
+  - Door
+  - Pathfinding
   layers:
   - Default
   - TransparentFX
@@ -51,6 +53,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4045723739
+    locked: 0
+  - name: Bullets
+    uniqueID: 3462317731
     locked: 0
   - name: UI
     uniqueID: 2975990321

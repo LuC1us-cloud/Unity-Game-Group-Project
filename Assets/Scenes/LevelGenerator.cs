@@ -15,6 +15,7 @@ public class LevelGenerator : MonoBehaviour
     public float largestRoomY = 0f;
     private string lastDoorId = "123";
     private string nextDoorId = "asdfghjklqwetyuipzxcvbmn1";
+    private bool isFirstRoom = true;
 
     void Awake()
     {

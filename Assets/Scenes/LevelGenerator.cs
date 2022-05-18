@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour
     private string lastDoorId = "123";
     private string nextDoorId = "asdfghjklqwetyuipzxcvbmn1";
     private bool isFirstRoom = true;
+    private const string bossRoomDoorId = "321";
 
     void Awake()
     {
@@ -44,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
             // get that gameobject's Sprite renderer and set it's color to a random color
             // set the gameobject's tag to "Room"
             var reference = GameObject.Instantiate(currentRoom, new Vector3(cursorPositionX, 0, -1), Quaternion.identity);
-            SetDoorConnections(reference);
+            SetDoorConnections(reference, i == roomMatrix.Length - 2 ? true : false);
             roomMatrix[i] = reference;
 
             var roomWidth = reference.GetComponent<SpriteRenderer>().bounds.size.x;
@@ -53,15 +54,14 @@ public class LevelGenerator : MonoBehaviour
                 largestRoomY = reference.GetComponent<SpriteRenderer>().bounds.size.y;
             }
             // reference.transform.position = new Vector3(cursorPositionX + roomWidth / 2, 0, 0);
-            cursorPositionX += roomWidth * 2;
+            cursorPositionX += roomWidth * 2.5f;
             // disable the gameobjects sprire renderer
             reference.GetComponent<SpriteRenderer>().enabled = false;
         }
-        // foreach (var room in roomMatrix)
-        // {
-        //     // move the rooms x position to the left by half of cursor position x
-        //     room.transform.position = new Vector3(room.transform.position.x - cursorPositionX / 2, room.transform.position.y, room.transform.position.z);
-        // }
+        // spawn in the boss room
+        int bossRoomNumber = Random.Range(0, bossRooms.Count);
+        roomMatrix[roomMatrix.Length - 1] = bossRooms[bossRoomNumber];
+        var bossRoomReference = GameObject.Instantiate(roomMatrix[roomMatrix.Length - 1], new Vector3(cursorPositionX, 0, -1), Quaternion.identity);
     }
     void Start()
     {
@@ -81,7 +81,7 @@ public class LevelGenerator : MonoBehaviour
         var pathfinding = pathfinder.GetComponent<Grid>();
         pathfinding.Initialize();
     }
-    private void SetDoorConnections(GameObject room)
+    private void SetDoorConnections(GameObject room, bool isLast = false)
     {
         // get all the gameobjects with RoomDoor script on them
         var doors = room.GetComponentsInChildren<RoomDoor>();
@@ -104,7 +104,14 @@ public class LevelGenerator : MonoBehaviour
             if (door.doorType == DoorType.ExitDoor)
             {
                 door.id = lastDoorId;
-                door.targetDoorId = nextDoorId;
+                if (isLast)
+                {
+                    door.targetDoorId = bossRoomDoorId;
+                }
+                else
+                {
+                    door.targetDoorId = nextDoorId;
+                }
             }
         }
     }

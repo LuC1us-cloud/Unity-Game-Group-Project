@@ -116,17 +116,19 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime * dashDistance);
     }
+    private const int zPosition = 0;
     private void Forcefield_Pushaway()
     {
-        Instantiate(Ff_PushawayPrefab, rb.position, Quaternion.identity);
+        Instantiate(Ff_PushawayPrefab, new Vector3(rb.position.x, rb.position.y, zPosition), Quaternion.identity);
+
     }
     private void Forcefield_Shield()
     {
-        Instantiate(Ff_ShieldPrefab, rb.position, Quaternion.identity);
+        Instantiate(Ff_ShieldPrefab, new Vector3(rb.position.x, rb.position.y, zPosition), Quaternion.identity);
     }
     private void Forcefield_Damage()
     {
-        Instantiate(Ff_DamagePrefab, rb.position, Quaternion.identity);
+        Instantiate(Ff_DamagePrefab, new Vector3(rb.position.x, rb.position.y, zPosition), Quaternion.identity);
     }
     private void Gravity_Orb()
     {

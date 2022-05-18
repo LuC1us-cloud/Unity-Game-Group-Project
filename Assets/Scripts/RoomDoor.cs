@@ -14,17 +14,18 @@ public class RoomDoor : Interactable
     {
         // Get mainplayer gameobject
         player = GameObject.FindGameObjectWithTag("Player");
-        // find all gameobjects with script RoomDoor
-        RoomDoor[] doors = FindObjectsOfType<RoomDoor>();
+        // find all gameobjects with tag Door
+        var doors = GameObject.FindGameObjectsWithTag("Door");
         // find the door with the same id as targetDoorId
         RoomDoor targetDoor = null;
-        foreach (RoomDoor door in doors)
+        foreach (GameObject door in doors)
         {
-            if (door.id == this.id) continue;
+            var roomDoor = door.GetComponent<RoomDoor>();
+            if (roomDoor.id == this.id) continue;
 
-            if (door.id == targetDoorId)
+            if (roomDoor.id == targetDoorId)
             {
-                targetDoor = door;
+                targetDoor = roomDoor;
                 break;
             }
         }

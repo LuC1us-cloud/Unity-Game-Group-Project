@@ -59,6 +59,7 @@ MonoBehaviour:
   isEquipped: 0
   type: 2
   rarity: 0
+  isOnGround: 1
   projectile: {fileID: 8272277826366540553, guid: 62733746f2324f2498222e45b778b82d, type: 3}
   firePoint:
   - {fileID: 3230462387267867557}
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   m_FlipX: 0

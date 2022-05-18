@@ -885,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: maxRooms
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRoomBias
@@ -901,7 +901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: puzzleRooms.Array.size
@@ -942,11 +942,11 @@ PrefabInstance:
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[7]
       value: 
-      objectReference: {fileID: 5407094725096988598, guid: b31c75d261b82bd4084f7c7af81e1ff8, type: 3}
+      objectReference: {fileID: 8419174522331686277, guid: 1c89185733ccba942a3f6085598b79d9, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[8]
       value: 
-      objectReference: {fileID: 8419174522331686277, guid: 1c89185733ccba942a3f6085598b79d9, type: 3}
+      objectReference: {fileID: 300253272037760214, guid: 4a9deb7559de33045b62bab46472c3e8, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[9]
       value: 

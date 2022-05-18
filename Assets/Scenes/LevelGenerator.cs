@@ -36,7 +36,7 @@ public class LevelGenerator : MonoBehaviour
         roomMatrix[0] = startingRooms[startingRoomNumber];
         var startingRoomReference = GameObject.Instantiate(roomMatrix[0], new Vector3(cursorPositionX, 0, -1), Quaternion.identity);
         var startingRoomWidth = startingRoomReference.GetComponent<SpriteRenderer>().bounds.size.x;
-        cursorPositionX += startingRoomWidth * 2;
+        cursorPositionX += startingRoomWidth * 2 + 30;
         startingRoomReference.GetComponent<SpriteRenderer>().enabled = false;
         for (int i = 1; i < roomMatrix.Length - 1; i++)
         {
@@ -54,7 +54,7 @@ public class LevelGenerator : MonoBehaviour
                 largestRoomY = reference.GetComponent<SpriteRenderer>().bounds.size.y;
             }
             // reference.transform.position = new Vector3(cursorPositionX + roomWidth / 2, 0, 0);
-            cursorPositionX += roomWidth * 2.5f;
+            cursorPositionX += roomWidth + 30;
             // disable the gameobjects sprire renderer
             reference.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -83,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
         pathfinding.Initialize();
     }
 
-     private void InitializeSpawners()
+    private void InitializeSpawners()
     {
         var doors = GameObject.FindGameObjectsWithTag("Spawner");
         foreach (var door in doors)

@@ -6,25 +6,16 @@ public class MainPlayer : Entity
 {
     public List<Item> inventory = new List<Item>();
     public GameObject inventoryUI;
-    // public bool isInventoryOpen = false;
-    // public GameObject inventoryUI;
-    private Item Head;
-    private Item Chest;
-    private Item Legs;
-    private Item Feet;
-    public GameObject leftHand;
-    public GameObject rightHand;
-    private Item Ring;
-    private Item Necklace;
-    private Item Amulet;
-    private Item Belt;
-    // Start is called before the first frame update
-    void Start()
+    public GameObject leftHandSlot;
+    public GameObject rightHandSlot;
+    private GameObject leftArm;
+    private GameObject rightArm;
+    private bool lastEquipedLeft;
+    private void Start()
     {
-
+        leftArm = GameObject.Find("Left Arm");
+        rightArm = GameObject.Find("Right Arm");
     }
-
-    // Update is called once per frame
     void Update()
     {
         // if tab is pressed toggle inventory GameObject visibility
@@ -45,13 +36,13 @@ public class MainPlayer : Entity
         }
         if (Input.GetButton("Fire1"))
         {
-            if (rightHand == null) return;
-            rightHand.GetComponent<RangedWeapon>().Shoot();
+            if (leftHandSlot == null) return;
+            leftHandSlot.GetComponent<RangedWeapon>().Shoot();
         }
         if (Input.GetButton("Fire2"))
         {
-            if (leftHand == null) return;
-            leftHand.GetComponent<RangedWeapon>().Shoot();
+            if (rightHandSlot == null) return;
+            rightHandSlot.GetComponent<RangedWeapon>().Shoot();
         }
     }
     void Use()
@@ -118,6 +109,47 @@ public class MainPlayer : Entity
             // disable the item
             item.SetActive(false);
         }
+    }
+    public void EquipItem(GameObject item)
+    {
+        if (item.GetComponent<Item>().isEquipped) return;
+        if (leftHandSlot == null)
+        {
+            leftHandSlot = item;
+            item.transform.SetParent(leftArm.transform);
+        }
+        else if (rightHandSlot == null)
+        {
+            rightHandSlot = item;
+            item.transform.SetParent(rightArm.transform);
+        }
+        else
+        {
+            if (lastEquipedLeft)
+            {
+                leftHandSlot.GetComponent<Item>().Drop(transform);
+                leftHandSlot.transform.SetParent(null);
+                inventory.Remove(leftHandSlot.GetComponent<Item>());
+                leftHandSlot = item;
+                item.transform.SetParent(leftArm.transform);
+                lastEquipedLeft = false;
+            }
+            else
+            {
+                rightHandSlot.GetComponent<Item>().Drop(transform);
+                rightHandSlot.transform.SetParent(null);
+                inventory.Remove(rightHandSlot.GetComponent<Item>());
+                rightHandSlot = item;
+                item.transform.SetParent(rightArm.transform);
+                lastEquipedLeft = true;
+            }
+        }
+        // make sure the items scale stays the same
+        item.GetComponent<Item>().isEquipped = true;
+        item.transform.localScale = new Vector3(1, 1, 1);
+        item.transform.localPosition = new Vector3(0, 0, 0);
+        item.transform.localRotation = Quaternion.identity;
+        item.SetActive(true);
     }
 
     //Method to move blocks with the tag 'Movable'

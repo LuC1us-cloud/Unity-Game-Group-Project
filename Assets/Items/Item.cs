@@ -47,14 +47,20 @@ public class Item : MonoBehaviour
     [HideInInspector]
     public ItemRarity rarity;
     public bool isOnGround = true;
-    private void Start() {
+    private void Start()
+    {
         self = gameObject;
     }
-    
+
     /// <summary>
     /// Use this function to drop the item, returns amount of items left in the stack
     /// </summary>
-    public int Drop(Transform position){
+    public int Drop(Transform position, int angle = -1)
+    {
+        if (angle < 0)
+        {
+            angle = Random.Range(0, 360);
+        }
         // if the item is stackable and the quantity is greater than 1
         // then decrement the quantity and return
         // if (stackable && quantity > 1)
@@ -66,9 +72,10 @@ public class Item : MonoBehaviour
         // activate item
         self.SetActive(true);
         isOnGround = true;
+        isEquipped = false;
         transform.position = new Vector3(position.position.x, position.position.y, transform.position.z);
         // change the rotation to random rotation
-        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        transform.rotation = Quaternion.Euler(0, 0, angle);
         return 0;
     }
 }

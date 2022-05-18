@@ -10,7 +10,7 @@ public class Reset : MonoBehaviour
     List<GameObject> boxes;
     List<PressurePlate> plates;
     List<LockedDoor> doors;
-    
+
     void Start()
     {
         var allBoxes = GameObject.FindGameObjectsWithTag("Movable");
@@ -32,7 +32,6 @@ public class Reset : MonoBehaviour
             var y = box.transform.position.y;
             if (x <= tprx && x >= btlx && y <= tpry && y >= btly)
             {
-                Debug.Log(box.transform.position);
                 positions.Add(box.transform.position);
                 boxes.Add(box);
             }
@@ -56,7 +55,7 @@ public class Reset : MonoBehaviour
             }
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

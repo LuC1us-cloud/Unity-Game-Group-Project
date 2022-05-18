@@ -897,11 +897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.size
-      value: 12
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: puzzleRooms.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: bossRooms.Array.data[0]
@@ -910,19 +910,19 @@ PrefabInstance:
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[0]
       value: 
-      objectReference: {fileID: 7270388772931669255, guid: 7d0b6580171884c428435ff38f9aa702, type: 3}
+      objectReference: {fileID: 458917496891819196, guid: 809b0f7bf45b3be41a4f1f6b262fe6ff, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[1]
       value: 
-      objectReference: {fileID: 9041235339675678756, guid: 82d98d61f8426964c9aa8f71b7875a4b, type: 3}
+      objectReference: {fileID: 1008855521242929640, guid: b22f233577c946c4aaa45e28bf741841, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[2]
       value: 
-      objectReference: {fileID: 458917496891819196, guid: 809b0f7bf45b3be41a4f1f6b262fe6ff, type: 3}
+      objectReference: {fileID: 1008855521242929640, guid: b22f233577c946c4aaa45e28bf741841, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[3]
       value: 
-      objectReference: {fileID: 7751048253648091483, guid: 9c569f3cef793ce46bdafc145e6c722b, type: 3}
+      objectReference: {fileID: 1008855521242929640, guid: b22f233577c946c4aaa45e28bf741841, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[4]
       value: 
@@ -938,15 +938,15 @@ PrefabInstance:
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[7]
       value: 
-      objectReference: {fileID: 8366984452983928918, guid: 0df5ef08279068a44beae66b6def10b8, type: 3}
+      objectReference: {fileID: 5407094725096988598, guid: b31c75d261b82bd4084f7c7af81e1ff8, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[8]
       value: 
-      objectReference: {fileID: 5407094725096988598, guid: b31c75d261b82bd4084f7c7af81e1ff8, type: 3}
+      objectReference: {fileID: 1690096840455136193, guid: 3bfab06118c42f847bf50a7513abb01c, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[9]
       value: 
-      objectReference: {fileID: 1690096840455136193, guid: 3bfab06118c42f847bf50a7513abb01c, type: 3}
+      objectReference: {fileID: 8419174522331686277, guid: 1c89185733ccba942a3f6085598b79d9, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: startingRooms.Array.size
       value: 1
@@ -954,7 +954,7 @@ PrefabInstance:
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[10]
       value: 
-      objectReference: {fileID: 8419174522331686277, guid: 1c89185733ccba942a3f6085598b79d9, type: 3}
+      objectReference: {fileID: 300253272037760214, guid: 4a9deb7559de33045b62bab46472c3e8, type: 3}
     - target: {fileID: 8463921664856981239, guid: d757a64ff8b54e44a93d58650aeab130, type: 3}
       propertyPath: enemyRooms.Array.data[11]
       value: 

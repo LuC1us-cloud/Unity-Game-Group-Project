@@ -17,5 +17,9 @@ public class Shield : MonoBehaviour
     {
         this.transform.position = Host.position;
         this.transform.Rotate(0f,0f,RotateSpeed);
+        if (this.transform.childCount == 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

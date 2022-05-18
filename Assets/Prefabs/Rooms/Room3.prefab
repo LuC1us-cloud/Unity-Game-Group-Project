@@ -5601,29 +5601,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a52a88021a9e4880d2aebb84b6e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
+  shield: {fileID: 6417817438860893922, guid: 2b44db8534001c3439cd0849049c3279, type: 3}
   waves:
   - name: Wave 1
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 1847730114037600417}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 3935060304188108757}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 5721962254879035813}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 8742003656540962740}
     rate: 1
   - name: Wave 2
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 1847730114037600417}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 5721962254879035813}
-    rate: 0.5
-  - name: Wave 3
-    enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 3935060304188108757}
-    rate: 1
+    - enemy: {fileID: 3167739331457495900, guid: 5127aa9c2fcc2e64790c399f049c2036, type: 3}
+      spawnPoint: {fileID: 4265726756129458351}
+    - enemy: {fileID: 3167739331457495900, guid: 5127aa9c2fcc2e64790c399f049c2036, type: 3}
+      spawnPoint: {fileID: 6685859727940646521}
+    rate: 0.2
   timeBetweenWaves: 5
   points: []
   safeSpot: {fileID: 0}

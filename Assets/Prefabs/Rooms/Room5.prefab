@@ -718,6 +718,7 @@ Transform:
   - {fileID: 1388487184020355780}
   - {fileID: 6148104701418934971}
   - {fileID: 1909811405626651666}
+  - {fileID: 1479147702303585827}
   m_Father: {fileID: 8751531933009154341}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -733,29 +734,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a52a88021a9e4880d2aebb84b6e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 0}
+  shield: {fileID: 6417817438860893922, guid: 2b44db8534001c3439cd0849049c3279, type: 3}
   waves:
   - name: Wave 1
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 1210329360164751133}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 6206876408011473898}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
       spawnPoint: {fileID: 1388487184020355780}
+    - enemy: {fileID: 1854608027749048304, guid: a738d508b9bd2404e9439fe2ad83bce2, type: 3}
+      spawnPoint: {fileID: 6148104701418934971}
+    - enemy: {fileID: 1745072820676698271, guid: 824b55088c0534549aad0eb1222f61fd, type: 3}
+      spawnPoint: {fileID: 1909811405626651666}
+    - enemy: {fileID: 1745072820676698271, guid: 824b55088c0534549aad0eb1222f61fd, type: 3}
+      spawnPoint: {fileID: 1479147702303585827}
     rate: 1
   - name: Wave 2
     enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
       spawnPoint: {fileID: 1210329360164751133}
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
+    - enemy: {fileID: 2084897890730849383, guid: 37be0e2252e0b32459fc90fea5485677, type: 3}
       spawnPoint: {fileID: 1388487184020355780}
     rate: 0.5
-  - name: Wave 3
-    enemies:
-    - enemy: {fileID: 8619805716118363556, guid: 686ce656adea50f44ab75c073fa86f18, type: 3}
-      spawnPoint: {fileID: 6206876408011473898}
-    rate: 1
   timeBetweenWaves: 5
   points: []
   safeSpot: {fileID: 0}
@@ -10968,6 +10970,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8400967546834894548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479147702303585827}
+  m_Layer: 0
+  m_Name: Spawn Point (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479147702303585827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400967546834894548}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 31.12, y: 5.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6801100292673560998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8534349418152463012
 GameObject:
   m_ObjectHideFlags: 0

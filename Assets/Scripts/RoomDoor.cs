@@ -10,6 +10,7 @@ public class RoomDoor : Interactable
     public string id;
     public string targetDoorId;
     GameObject player;
+    private bool wasUsed;
     public void Initialize()
     {
         // Get mainplayer gameobject
@@ -34,6 +35,11 @@ public class RoomDoor : Interactable
 
     public override void Interact()
     {
+        if(!wasUsed && doorType == DoorType.ExitDoor){
+            var scoreObject = GameObject.FindGameObjectWithTag("ScoreText");
+            scoreObject.GetComponent<Score>().AddScore(100);
+            wasUsed = true;
+        }
         player.transform.position = nextPosition.position;
         if (gameObject.tag == "Exit")
         {

@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
     private float timeSinceLastDamge = 0;
     public bool isInvincible = false;
     public bool isStunned = false;
+    private GameObject highscoreRef;
     private void FixedUpdate()
     {
         // if health reaches 0, destroy the object
@@ -46,6 +47,9 @@ public class Entity : MonoBehaviour
             timeSinceLastDamge += Time.deltaTime;
         }
     }
+    private void Start() {
+        highscoreRef = GameObject.FindGameObjectWithTag("Highscore");
+    }
     /// <summary>
     /// Take damage from a source
     /// </summary>
@@ -66,6 +70,13 @@ public class Entity : MonoBehaviour
     }
     public void Die()
     {
+            var scoreObject = GameObject.FindGameObjectWithTag("ScoreText");
+            scoreObject.GetComponent<Score>().AddScore(30);
+            if(gameObject.name == "Boss (1)"){
+                
+            scoreObject.GetComponent<Score>().AddScore(500);
+            highscoreRef.GetComponent<Highscore>().DisplayScores();
+            }
         Destroy(gameObject);
         Instantiate(deathAnim, transform.position, Quaternion.identity);
         Debug.Log(deathAnim.name);
